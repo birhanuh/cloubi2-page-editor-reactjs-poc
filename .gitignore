@@ -1,0 +1,26 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# Dependencies
+node_modules
+
+# Post processed
+app.css
+
+# Development
+dist
+
+# Testing
+errorShots
+
+# Production
+
+# Misc
+.DS_Store
+.env
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+
+
