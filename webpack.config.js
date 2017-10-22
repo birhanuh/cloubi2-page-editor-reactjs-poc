@@ -5,20 +5,31 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 module.exports = {
   entry: {
     app: './src/index.js',
-    print: './src/print.js'
+    //print: './src/print.js'
   },  
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './src'
+  },
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      title: 'Output Management'
+      template: './src/index.html'
     })
   ],
   module: {
     rules: [
+      { 
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: [
+          'babel-loader',
+        ],
+      },
       {
         test: /\.scss$/,
         use: [{
@@ -42,5 +53,8 @@ module.exports = {
         ]
       }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   }
 }
