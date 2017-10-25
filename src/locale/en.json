@@ -1,0 +1,14 @@
+{  
+  "navigation": {
+    "header": "Home",
+    "welcome": "Welcome to",
+    "slogan": "Automate manage and track your Sales and Projects more efficently online!",
+    "get_started": "Get started for free",
+    "learn_more": "Learn more"
+  },
+  "footer": {
+    "copyright": "Copyright &copy; Toolsio, Ltd. 2017",
+    "address": "Pyyntitie 2 C 50, 02230, Espoo, Finland",
+    "toolsio": "Toolsio"
+  }
+}

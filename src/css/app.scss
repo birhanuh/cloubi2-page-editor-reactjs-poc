@@ -1,12 +1,12 @@
-@font-face {
-  font-family: 'Open Sans', sans-serif;
-  src: url('../fonts/OpenSans-Light.ttf') format('ttf'),
-      url('../fonts/OpenSans-Regular.ttf') format('ttf'),
-      url('../fonts/OpenSans-Bold.ttf') format('ttf'),
-      url('../fonts/OpenSans-Italic.ttf') format('ttf');
-}
+// Mixins and variables
+@import "_variables";
+@import "_mixins";
 
-.hello {
-  color: red;
-  font-family: 'Open Sans';
-}
+// Custom styles 
+@import "_layouts.scss";
+@import "_typography.scss";
+@import "_tables.scss";
+@import "_forms.scss";
+
+// Bootsrap
+@import "~bootstrap/scss/bootstrap";

@@ -1,0 +1,29 @@
+@font-face {
+  font-family: 'Open Sans', sans-serif;
+  src: url('../fonts/OpenSans-Light.ttf') format('ttf'),
+      url('../fonts/OpenSans-Regular.ttf') format('ttf'),
+      url('../fonts/OpenSans-Bold.ttf') format('ttf'),
+      url('../fonts/OpenSans-Italic.ttf') format('ttf');
+}
+
+body {
+  background-color: $body-background-color;
+  color: $body-color;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased; 
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+          text-size-adjust: 100%;
+}
+
+// Navbar
+.navbar {
+  background-color: #ff570c;
+}
+
+.navbar-brand {
+  width: 100px;
+}
+
