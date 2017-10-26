@@ -6,11 +6,17 @@
       url('../fonts/OpenSans-Italic.ttf') format('ttf');
 }
 
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   background-color: $body-background-color;
   color: $body-color;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 14px !important;
+  margin-bottom: 100px !important;
   moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased; 
   -webkit-text-size-adjust: 100%;
@@ -21,9 +27,100 @@ body {
 // Navbar
 .navbar {
   background-color: #ff570c;
+
+  .avatar {
+    border-radius: 20px; 
+  }
+  .img-thumbnail {
+    padding: 0;
+    border: 1px solid $white;
+  }
+  .nav-item {
+    color: $white;
+  }
+  .dropdown-item {
+    color: $body-color;
+  }
+  .dropdown-item.active, .dropdown-item:active, .dropdown-item:focus, .dropdown-item:hover {
+    color: $body-color;
+    background-color: $x-light-gray;
+  }
 }
 
 .navbar-brand {
   width: 100px;
 }
 
+// Container
+#app > div > div {
+  margin-top: 56px;
+}
+
+// Sidebar 
+.sidebar {
+  position: fixed !important;
+  height: 100%;
+  background: $dark-gray;
+  border: none;
+  z-index: 1;
+  .nav-item {    
+    border-bottom: 1px solid $light-gray;
+    font-weight: 600;
+    text-transform: uppercase !important;
+    padding: 0; 
+  }
+  .nav-item a {    
+    color: $white;
+  }
+  .nav-item:first-child {
+    border-top: 1px solid $light-gray;
+  }
+  .active.item, .active.item:hover, .active.item:focus {
+    background: $dark-dark-gray;
+    color: $orange;
+  }
+  .nav-link:hover, .nav-link:active, .nav-link:focus {
+    background: $dark-dark-gray;
+    transition: 0.2s all ease-in-out;
+    outline: none;
+    color: $orange;
+  }
+  .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: $orange;
+    background-color: $dark-dark-gray;
+  }
+  .nav-pills .nav-link {
+    border-radius: 0.25rem;
+  }
+  .logo {
+    padding: 15px;
+  }
+  .logo .img-thumbnail {
+    background-color: #0C48D8;
+  }
+  .logo a {
+    color: $white;
+  }
+} 
+
+// Footer
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background-color: $dark-dark-gray;
+  color: $light-gray;
+  padding: 10px;
+}
+
+// Breadrump
+.breadcrumb {
+  background-color: transparent !important;
+  a {
+    color: $orange;
+    &:hover, &:active, &focus {
+      color: $light-orange;    
+    }
+  }
+}

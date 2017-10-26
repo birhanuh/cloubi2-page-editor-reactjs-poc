@@ -7,6 +7,10 @@
 @import "_typography.scss";
 @import "_tables.scss";
 @import "_forms.scss";
+@import "_buttons.scss";
 
 // Bootsrap
 @import "~bootstrap/scss/bootstrap";
+
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
