@@ -13,7 +13,7 @@ class Page extends Component {
     return(
       <div>
         <nav className="clearfix mb-3" aria-label="breadcrumb" role="navigation">
-          <h1 className="float-left">Product 1<small className="text-muted">Exercise</small></h1>
+          <h2 className="float-left">Product 1<small className="text-muted">Exercise</small></h2>
           <ol className="breadcrumb float-right">
             <li className="breadcrumb-item"><a href="#">Products</a></li>
             <li className="breadcrumb-item active" aria-current="page">Products 1</li>
@@ -34,7 +34,7 @@ class Page extends Component {
                 </button>
               </div>               
               <div className="btn-group">
-                <select className="custom-select">
+                <select className="custom-select-sm">
                   <option defaultValue>-Set status-</option>
                   <option value="progress">In progress</option>
                   <option value="hold">On hold</option>

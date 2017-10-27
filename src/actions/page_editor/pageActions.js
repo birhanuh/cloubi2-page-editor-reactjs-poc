@@ -1,4 +1,4 @@
-import { getPages, getPage } from '../../utils'
+import { objectAPI } from '../../utils'
 import { SET_PAGES, PAGE_FETCHED } from '../types'
 
 export function setPages(pages) {
@@ -15,9 +15,9 @@ export function pageFetched(page) {
   }
 }
 
-export function fetchPages(argument) {
+export function fetchPages() {
   return dispatch => {
-    return getPages((pages) => {
+    return objectAPI.getPages((pages) => {
       dispatch(setPages(pages))
     })
   }
@@ -25,7 +25,7 @@ export function fetchPages(argument) {
 
 export function fetchPage(id) {
   return dispatch => {
-    return getPage(id, (page) => {
+    return objectAPI.getPage(id, (page) => {
       dispatch(pageFetched(page))
     })
   }

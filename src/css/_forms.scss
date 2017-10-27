@@ -1,5 +1,12 @@
-.custom-select {
+select {
+  background-color: rgb(255, 255, 255);
+}
+.custom-select, .custom-select-sm {
   @include web-appearance(none);
-  padding: 0.375rem 0.5rem 0.375rem 0.75rem !important;
-  border-color: $dark-light-gray !important;
+  padding: 0.375rem 0.5rem 0.375rem 0.75rem;
+  border-color: $dark-light-gray;
+}
+
+.btn-toolbar .custom-select-sm {
+  margin-top: 5px;
 }

@@ -1,3 +1,9 @@
+// Bootsrap
+@import "~bootstrap/scss/bootstrap";
+
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
+
 // Mixins and variables
 @import "_variables";
 @import "_mixins";
@@ -10,8 +16,3 @@
 @import "_buttons.scss";
 @import "_tabs.scss";
 
-// Bootsrap
-@import "~bootstrap/scss/bootstrap";
-
-$fa-font-path: "~font-awesome/fonts";
-@import "~font-awesome/scss/font-awesome";

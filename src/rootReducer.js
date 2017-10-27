@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-import structures from './reducers/page_editor/structures'
+import pages from './reducers/page_editor/pages'
 
 export default combineReducers({
-  structures
+  pages
 })
