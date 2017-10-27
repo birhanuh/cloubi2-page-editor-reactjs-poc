@@ -96,7 +96,7 @@ body {
     padding: 15px;
   }
   .logo .img-thumbnail {
-    background-color: #0C48D8;
+    background-color: $white;
   }
   .logo a {
     color: $white;
@@ -124,3 +124,8 @@ body {
     }
   }
 }
+
+// Dropdown menu
+.dropdown-menu {
+  font-size: 1em !important;
+}    

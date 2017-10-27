@@ -1,0 +1,5 @@
+.custom-select {
+  @include web-appearance(none);
+  padding: 0.375rem 0.5rem 0.375rem 0.75rem !important;
+  border-color: $dark-light-gray !important;
+}

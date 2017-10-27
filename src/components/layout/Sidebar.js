@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
 
-import ophLogoWithTextWhite from '../../images/oph-logo-with-text-white.png'
+import ophLogo from '../../images/oph-logo.png'
 
 class Sidebar extends Component {
   
   render() {
     return (
       <nav className="col-sm-3 col-md-2 d-sm-block sidebar pt-3 pl-0 pr-0">
-        <div className="logo text-center">
-          <img src={ophLogoWithTextWhite} alt="ophLogoWithTextWhite" className="img-thumbnail" />
-          <a href="#" className="mt-2 mb-2 d-inline-block">OPH (Admin)</a>
+        <div className="logo">
+          <div className="text-center">
+            <img src={ophLogo} alt="ophLogo" className="img-thumbnail" width="100px" />
+          </div>
+          <div className="text-center">
+            <a href="#" className="mt-2 mb-2 d-inline-block">OPH (Admin)</a>
+          </div>
         </div>  
         <ul className="nav nav-pills flex-column">
           <li className="nav-item">

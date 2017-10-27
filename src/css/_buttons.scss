@@ -17,10 +17,10 @@
 }
 
 .btn-outline-secondary {
-  color: $light-gray !important;
-  border-color: $light-gray !important;
+  color: $dark-light-gray !important;
+  border-color: $dark-light-gray !important;
   &:hover, &:active, &:focus {
     color: $white !important;
-    border-color: $dark-light-gray !important;
+    background-color: $dark-light-gray !important;
   } 
 }

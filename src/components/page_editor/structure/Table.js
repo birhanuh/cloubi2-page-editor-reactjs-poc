@@ -12,7 +12,7 @@ class Table extends Component {
 
     return(
       <div className="table-responsive">
-        <table className="table table-striped">
+        <table className="table table-hover">
           <thead>
             <tr>
               <th><input type="checkbox" aria-label="Checkbox for following text input" /></th>
