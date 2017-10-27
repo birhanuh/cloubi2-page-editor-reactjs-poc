@@ -1,5 +1,5 @@
-import { getPages, getPage } from '../utils'
-import { SET_PAGES, PAGE_FETCHED } from '.types'
+import { getPages, getPage } from '../../utils'
+import { SET_PAGES, PAGE_FETCHED } from '../types'
 
 export function setPages(pages) {
   return {

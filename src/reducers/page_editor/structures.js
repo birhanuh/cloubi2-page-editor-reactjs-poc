@@ -1,6 +1,6 @@
-import { SET_PAGES, PAGE_FETCHED } from '../actions/types'
+import { SET_PAGES, PAGE_FETCHED } from '../../actions/types'
 
-export default function pageEditor(state = [], action = {}) {
+export default function structures(state = [], action = {}) {
   switch(action.type) {    
 
     case SET_PAGES:

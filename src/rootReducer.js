@@ -1,7 +1,7 @@
-import { combineReducers } from 'reduxt'
+import { combineReducers } from 'redux'
 
-import pageEditor from './reducers/pageEditor'
+import structures from './reducers/page_editor/structures'
 
-export default comineReducers({
-  pageEditor
+export default combineReducers({
+  structures
 })
