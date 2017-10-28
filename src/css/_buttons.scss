@@ -8,7 +8,7 @@
   border-radius: 0.1875rem;
   padding: 11px 22px;
   cursor: pointer;
-  background-color: #606470;
+  background-color: $gray;
   color: #FFFFFF;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -33,7 +33,7 @@
 .btn-primary {
   background-color: $orange;
   &:hover, &:active, &:focus {
-    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.17);
+    background-color: $light-orange;
   } 
 }
 
@@ -63,11 +63,11 @@
 }
 
 .btn-outline {
-  color: $light-gray;
-  border-color: $light-gray;
+  color: $gray;
+  border-color: $gray;
   &:hover, &:active, &:focus {
     color: $white !important;
-    background-color: $light-gray;
+    background-color: $gray;
   } 
 }
 
@@ -80,7 +80,7 @@
   } 
 }
 
-.btn-sm, .btn-group-sm > .btn {
-    padding: 0.4rem 0.5rem;
-    font-size: 0.875rem;
+.btn-sm {
+  border-radius: 0.1875rem;
+  padding: 5px 15px;
 }

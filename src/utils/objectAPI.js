@@ -1,63 +1,98 @@
 
 export default {
   getPages: (pages) => {
+    // var arr = _.values(obj)
     let pagesArray = []
     
     let pageOne = {
-      id: 1,
-      name: 'Chapter1',
+      _id: 1,
+      name: {
+        name: 'Chapter 1',
+        url: 'http://placehold.it/32x3'
+      },
       type: {
         name: 'Navigation menu',
         url: 'http://placehold.it/32x3'
       },
-      state: {
-        value: 'In progress',
-        options: [
-          'In progress',
-          'On hold'
-        ]
-      },
+      state: 'On hold',
       lastModified: 'Sunday, May 17, 2015',
       actions: {
-        options: [
-          {
-            name: 'Settings',
-            url: 'http://placehold.it/32x3'
-          },
-          {
-            name: 'Change items',
-            url: 'http://placehold.it/32x3'
-          }
-        ]
+        pageSettings: {
+          url: 'http://placehold.it/32x3'
+        },
+        selectType: {
+          url: 'http://placehold.it/32x3'
+        },
+        copySettingsToSinglePage: {
+          url: 'http://placehold.it/32x3'
+        },
+        addPages: {
+          url: 'http://placehold.it/32x3'
+        },
+        editSubStructure: {
+          url: 'http://placehold.it/32x3'
+        },
+        arrangeChildren: {
+          url: 'http://placehold.it/32x3'
+        },
+        movePage: {
+          url: 'http://placehold.it/32x3'
+        },
+        duplicatePage:  {
+          url: 'http://placehold.it/32x3'
+        },
+        importPages:  {
+          url: 'http://placehold.it/32x3'
+        },
+        deletePage: {
+          url: 'http://placehold.it/32x3'
+        }
       }
     }
 
     let pageTwo = {
-      id: 2,
-      name: 'Chapter2',
+      _id: 2,
+      name: {
+        name: 'Chapter 2',
+        url: 'http://placehold.it/32x3'
+      },
       type: {
         name: 'Navigation menu',
         url: 'http://placehold.it/32x3'
       },
-      state: {
-        value: 'On hold',
-        options: [
-          'In progress',
-          'On hold'
-        ]
-      },
+      state: 'In progress',
       lastModified: 'Sunday, May 17, 2015',
       actions: {
-        options: [
-          {
-            name: 'Settings',
-            url: 'http://placehold.it/32x3'
-          },
-          {
-            name: 'Change items',
-            url: 'http://placehold.it/32x3'
-          }
-        ]
+        pageSettings: {
+          url: 'http://placehold.it/32x3'
+        },
+        selectType: {
+          url: 'http://placehold.it/32x3'
+        },
+        copySettingsToSinglePage: {
+          url: 'http://placehold.it/32x3'
+        },
+        addPages: {
+          url: 'http://placehold.it/32x3'
+        },
+        editSubStructure: {
+          url: 'http://placehold.it/32x3'
+        },
+        arrangeChildren: {
+          url: 'http://placehold.it/32x3'
+        },
+        movePage: {
+          url: 'http://placehold.it/32x3'
+        },
+        duplicatePage:  {
+          url: 'http://placehold.it/32x3'
+        },
+        importPages:  {
+          url: 'http://placehold.it/32x3'
+        },
+        deletePage: {
+          url: 'http://placehold.it/32x3'
+        }
       }
     }
 
@@ -70,31 +105,48 @@ export default {
   getPage: (id, page) => {
     
     let pageOne = {
-      id: 1,
-      name: 'Chapter1',
+      _id: 1,
+      name: {
+        name: 'Chapter 1',
+        url: 'http://placehold.it/32x3'
+      },
       type: {
         name: 'Navigation menu',
         url: 'http://placehold.it/32x3'
       },
-      state: {
-        value: 'In progress',
-        options: [
-          'In progress',
-          'On hold'
-        ]
-      },
+      state: 'On hold',
       lastModified: 'Sunday, May 17, 2015',
       actions: {
-        options: [
-          {
-            name: 'Settings',
-            url: 'http://placehold.it/32x3'
-          },
-          {
-            name: 'Change items',
-            url: 'http://placehold.it/32x3'
-          }
-        ]
+        pageSettings: {
+          url: 'http://placehold.it/32x3'
+        },
+        selectType: {
+          url: 'http://placehold.it/32x3'
+        },
+        copySettingsToSinglePage: {
+          url: 'http://placehold.it/32x3'
+        },
+        addPages: {
+          url: 'http://placehold.it/32x3'
+        },
+        editSubStructure: {
+          url: 'http://placehold.it/32x3'
+        },
+        arrangeChildren: {
+          url: 'http://placehold.it/32x3'
+        },
+        movePage: {
+          url: 'http://placehold.it/32x3'
+        },
+        duplicatePage:  {
+          url: 'http://placehold.it/32x3'
+        },
+        importPages:  {
+          url: 'http://placehold.it/32x3'
+        },
+        deletePage: {
+          url: 'http://placehold.it/32x3'
+        }
       }
     }
 

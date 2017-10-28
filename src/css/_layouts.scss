@@ -59,11 +59,11 @@ body {
 .sidebar {
   position: fixed;
   height: 100%;
-  background: $dark-gray;
+  background: $x-dark-gray;
   border: none;
   z-index: 1;
   .nav-item {    
-    border-bottom: 1px solid $light-gray;
+    border-bottom: 1px solid $gray;
     font-weight: 600;
     text-transform: uppercase;
     padding: 0; 
@@ -72,21 +72,21 @@ body {
     color: $white;
   }
   .nav-item:first-child {
-    border-top: 1px solid $light-gray;
+    border-top: 1px solid $gray;
   }
   .active.item, .active.item:hover, .active.item:focus {
-    background: $dark-dark-gray;
+    background: $xx-dark-gray;
     color: $orange;
   }
   .nav-link:hover, .nav-link:active, .nav-link:focus {
-    background: $dark-dark-gray;
+    background: $xx-dark-gray;
     transition: 0.2s all ease-in-out;
     outline: none;
     color: $orange;
   }
   .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     color: $orange;
-    background-color: $dark-dark-gray;
+    background-color: $xx-dark-gray;
   }
   .nav-pills .nav-link {
     border-radius: 0.25rem;
@@ -108,8 +108,8 @@ body {
   bottom: 0;
   width: 100%;
   height: 80px;
-  background-color: $dark-dark-gray;
-  color: $light-light-gray;
+  background-color: $xx-dark-gray;
+  color: $light-gray;
   padding: 10px;
 }
 

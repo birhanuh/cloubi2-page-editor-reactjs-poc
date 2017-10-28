@@ -27,7 +27,7 @@ class Table extends Component {
     const pagesList = (  
       <tbody>               
         {/* Import Tr component */}  
-        { this.props.pages.map(page => <Tr key={page.id} page={page} />) }  
+        { this.props.pages.map(page => <Tr key={page._id} page={page} />) }  
       </tbody>        
     )
 

@@ -3,10 +3,18 @@ select {
 }
 .custom-select, .custom-select-sm {
   @include web-appearance(none);
-  padding: 0.375rem 0.5rem 0.375rem 0.75rem;
-  border-color: $dark-light-gray;
+  padding: 0.375rem 0.5rem 0.275rem 0.75rem;
+  border-color: $gray;
 }
 
+.custom-select-sm {
+  height: calc(1.66rem + 2px);
+}
+
+.custom-select:focus, .custom-select-sm:focus {
+  border-color: $gray;
+}
+  
 .btn-toolbar .custom-select-sm {
   margin-top: 5px;
 }
