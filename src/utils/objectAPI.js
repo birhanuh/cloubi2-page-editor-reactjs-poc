@@ -6,12 +6,14 @@ export default {
     
     let pageOne = {
       _id: 1,
+      _parentId: null,
+      children: false,
       name: {
-        name: 'Chapter 1',
+        value: 'Chapter 1',
         url: 'http://placehold.it/32x3'
       },
       type: {
-        name: 'Navigation menu',
+        value: 'Navigation menu',
         url: 'http://placehold.it/32x3'
       },
       state: 'On hold',
@@ -52,12 +54,14 @@ export default {
 
     let pageTwo = {
       _id: 2,
+      _parentId: null,
+      children: true,
       name: {
-        name: 'Chapter 2',
+        value: 'Chapter 2',
         url: 'http://placehold.it/32x3'
       },
       type: {
-        name: 'Navigation menu',
+        value: 'Navigation menu',
         url: 'http://placehold.it/32x3'
       },
       state: 'In progress',
@@ -105,13 +109,15 @@ export default {
   getPage: (id, page) => {
     
     let pageOne = {
-      _id: 1,
+      _id: 3,
+      _parentId: 2,
+      children: false,
       name: {
-        name: 'Chapter 1',
+        value: 'Exercise 1',
         url: 'http://placehold.it/32x3'
       },
       type: {
-        name: 'Navigation menu',
+        value: 'Content page',
         url: 'http://placehold.it/32x3'
       },
       state: 'On hold',

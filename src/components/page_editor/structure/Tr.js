@@ -10,12 +10,14 @@ class Tr extends Component {
     super(props)
     this.state = {
       _id: this.props.page ? this.props.page._id : null,
+      _parentId: this.props.page ? this.props.page._parentId : null,
+      children: this.props.page ? this.props.page.children : false,
       name: {
-        name: this.props.page ? this.props.page.name.name : '',
+        value: this.props.page ? this.props.page.name.value : '',
         url: this.props.page ? this.props.page.name.url : ''
       },
       type: {
-        name: this.props.page ? this.props.page.type.name : '',
+        value: this.props.page ? this.props.page.type.value : '',
         url: this.props.page ? this.props.page.type.url : ''
       },
       state: this.props.page ? this.props.page.state : '',
@@ -46,15 +48,30 @@ class Tr extends Component {
   render() {
 
     {/* Deconstruct state */}
-    const { _id, name, type, state, lastModified, actions } = this.state
-    console.log('id: ', _id)
+    const { _id, _parentId, children, name, type, state, lastModified, actions } = this.state
+   
     let trimedLowercasedSate = state.replace(" ", "").toLowerCase()
 
+    let typeOnClickAction = ''
+
+    switch(type.value) {
+      case "Navigation menu":
+        typeOnClickAction = (<td><a data-on-click="showPagePreview('+type.url+')">{type.value}</a></td>)
+        break
+      case "Content page":
+        typeOnClickAction = (<td><a data-on-click="openExternalEditor('+type.url+')">{type.value}</a></td>)
+        break
+      default:
+        typeOnClickAction = (<td>Unknown action!</td>)
+    }
+    
+    let dataTTPrentId = _parentId ? _parentId : ''
+
     return(        
-      <tr onClick={this.handleCollapse.bind(this)}>
+      <tr onClick={this.handleCollapse.bind(this)} data-tt-id={""+_id+""} data-tt-parent-id={""+dataTTPrentId+""}>
         <td id={_id}><input type="checkbox" aria-label="Checkbox for following text input" /></td>
-        <td><a data-on-click={"selectNode("+_id+")"}>{name.name}</a></td>
-        <td><a data-on-click="showPagePreview('+type.url+')">{type.name}</a></td>
+        <td><a data-on-click={"selectNode("+_id+")"}>{name.value}</a></td>
+        {typeOnClickAction}
         <td>
           <select className="custom-select-sm" value={trimedLowercasedSate} onChange={this.handleStateChange.bind(this)}>
             <option defaultValue>-Set status-</option>
