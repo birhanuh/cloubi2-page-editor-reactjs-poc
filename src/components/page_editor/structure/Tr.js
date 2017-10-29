@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 // Import collapse module
 import 'bootstrap/js/dist/collapse'
+
+import SecondLevelTr from './SecondLevelTr'
 
 class Tr extends Component {
 
@@ -33,12 +36,20 @@ class Tr extends Component {
         duplicatePageUrl: this.props.page ? this.props.page.actions.duplicatePage.url : '',
         importPagesUrl: this.props.page ? this.props.page.actions.importPages.url : '',
         deletePageUrl: this.props.page ? this.props.page.actions.deletePage.url : ''
-      }
+      },
+      currentTrId: null
     }
   }
 
-  handleCollapse = () => {
+  handleCollapse = (id, event) => {
+    event.preventDefault()
+
     $('.collapse').collapse()
+    //$('<tr><td>new td</td></tr>').insertAfter($('#'+id).closest('tr'))
+
+    this.setState({
+      currentTrId: id
+    })
   }
 
   handleStateChange = () => {
@@ -48,7 +59,7 @@ class Tr extends Component {
   render() {
 
     {/* Deconstruct state */}
-    const { _id, _parentId, children, name, type, state, lastModified, actions } = this.state
+    const { _id, _parentId, children, name, type, state, lastModified, actions, currentTrId } = this.state
    
     let trimedLowercasedSate = state.replace(" ", "").toLowerCase()
 
@@ -67,8 +78,12 @@ class Tr extends Component {
     
     let dataTTPrentId = _parentId ? _parentId : ''
 
+    const secondLevelTrs = (
+      <SecondLevelTr currentTrId={currentTrId} />
+    )
+
     return(        
-      <tr onClick={this.handleCollapse.bind(this)} data-tt-id={""+_id+""} data-tt-parent-id={""+dataTTPrentId+""}>
+      <tr id={_id} onClick={this.handleCollapse.bind(this, _id)} data-tt-id={""+_id+""} data-tt-parent-id={""+dataTTPrentId+""}>
         <td id={_id}><input type="checkbox" aria-label="Checkbox for following text input" /></td>
         <td><a data-on-click={"selectNode("+_id+")"}>{name.value}</a></td>
         {typeOnClickAction}
@@ -105,6 +120,9 @@ class Tr extends Component {
             <a className="dropdown-item" data-on-click={"deletePage("+actions.deletePageUrl+")"}>Delete</a>
           </div>
         </td> 
+
+        { currentTrId && secondLevelTrs }
+
       </tr>
 
     )
@@ -112,7 +130,13 @@ class Tr extends Component {
 }
 
 Tr.propTypes = {
-  page: PropTypes.object.isRequired
+  pages: PropTypes.array.isRequired,
 }
 
-export default Tr
+function mapStateToProps(state, props) {
+  return {
+    pages: state.pages
+  }
+}
+
+export default connect(mapStateToProps)(Tr)

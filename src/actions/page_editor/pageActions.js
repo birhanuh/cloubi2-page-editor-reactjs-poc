@@ -18,7 +18,9 @@ export function pageFetched(page) {
 export function fetchPages() {
   return dispatch => {
     return objectAPI.getPages((pages) => {
-      dispatch(setPages(pages))
+      if (pages) {
+        dispatch(setPages(pages)) 
+      }
     })
   }
 }
@@ -26,7 +28,9 @@ export function fetchPages() {
 export function fetchPage(id) {
   return dispatch => {
     return objectAPI.getPage(id, (page) => {
-      dispatch(pageFetched(page))
+      if (page) {
+        dispatch(pageFetched(page))
+      }
     })
   }
 }

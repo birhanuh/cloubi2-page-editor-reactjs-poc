@@ -7,19 +7,17 @@ export default function pages(state = [], action = {}) {
       return action.pages
 
     case PAGE_FETCHED: 
-      const parentIdIndexAddTask = state.findIndex(item => item._id === action.page._parentId)
-      if (parentIdIndexAddTask > -1) {
+      const index = state.findIndex(item => item._id === action.page._id)
+      if (index > -1) {
         return state.map(item => {
-          if (item._id === action.page._parentId) {
-            return {
-              ...item,
-              pages: [...item.pages, action.page]     
-            }  
-          }
-          return item 
+          if (item._id === action.page._id) return action.page
+          return item
         })
       } else {
-        return [...state]
+        return [
+          ...state,
+          action.page
+        ]
       }
 
     default: return state
