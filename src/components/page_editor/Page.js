@@ -24,11 +24,11 @@ class Page extends Component {
           <div className="float-right">
             <div className="btn-toolbar">
               <div className="btn-group mr-2">
-                <button type="button" className="btn btn-sm btn-outline-secondary">
+                <button type="button" className="btn btn-sm btn-outline-info">
                   <i className="fa fa-eye" aria-hidden="true"></i>&nbsp;
                   Preview
                 </button>
-                <button type="button" className="btn btn-sm btn-outline-secondary">
+                <button type="button" className="btn btn-sm btn-outline-info">
                   <i className="fa fa-share-square" aria-hidden="true"></i>&nbsp;
                   Share
                 </button>

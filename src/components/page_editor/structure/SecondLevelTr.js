@@ -14,31 +14,21 @@ class SecondLevelTr extends Component {
     this.props.fetchPage(this.props.currentTrId)
   }
 
-  handleCollapse = (id, event) => {
-    event.preventDefault()
-
-    $('.collapse').collapse()
-
-  }
-
-  handleStateChange = () => {
-
-  }
-
   render() {
     console.log('children: ', Array.isArray(this.props.page.children))
-    return(      
-      <td colSpan="2" className="p-0" onClick={this.handleCollapse.bind(this)}>
-        <table width="100%">
-          <tbody>           
+    return( 
+      <tr>     
+        <td colSpan="6" className="p-0">
+          <table width="100%">
+            <tbody>           
 
-            {/* Iterate Tr component */}  
-            { Array.isArray(this.props.page.children) && this.props.page.children.map(page => <Tr key={page._id} page={page} />) }  
+              {/* Iterate Tr component */}  
+              { Array.isArray(this.props.page.children) && this.props.page.children.map(page => <Tr key={page._id} page={page} />) }  
 
-          </tbody>
-        </table>
-      </td>      
-
+            </tbody>
+          </table>
+        </td>      
+      </tr>
     )
   }
 }

@@ -6,6 +6,12 @@ import { fetchPages } from '../../../actions/page_editor/pageActions.js'
 import Tr from './Tr'
 
 class Table extends Component {
+  constructor() {
+    super()
+    this.state = {
+      title: 'Title'
+    }
+  }
 
   componentDidMount = () => {
     this.props.fetchPages()
@@ -31,9 +37,13 @@ class Table extends Component {
       </tbody>        
     )
 
+    // setTimeout(() => {
+    //   this.setState({ title: 'Title updated' })
+    // }, 3000)
+
     return(
       <div className="table-responsive">
-        <table className="table table-hover">
+        <table className="table">
           <thead>
             <tr>
               <th><input type="checkbox" aria-label="Checkbox for following text input" /></th>
@@ -46,8 +56,17 @@ class Table extends Component {
           </thead>
                   
           { this.props.pages.length === 0 ? emptyMessage : pagesList}
-          
+
         </table> 
+      {/*<h2>{this.state.title}</h2>*/}
+        <div className="mt-5 mb-5">
+          <div className="col-md-4 offset-md-4">
+            <button type="button" className="btn btn-block btn-primary">
+              <i className="fa fa-refresh" aria-hidden="true"></i>&nbsp;
+                Load more
+            </button>
+          </div>
+        </div>
       </div>
     )
   }

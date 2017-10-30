@@ -1,0 +1,15 @@
+.table th, .table td {
+  vertical-align: middle;
+}
+
+.structure  > .table-responsive > table > tbody >  tr > td > table > tbody > tr > td > table > tbody > tr > td > table > tbody > tr > td:first-child {
+  padding-left: 40px;
+}
+
+.structure > .table-responsive > table > tbody >  tr.children > td > table > tbody > tr:hover:first-child {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.structure > .table-responsive > table > tbody >  tr.children > td > table > tbody > tr > td > table > tbody > tr.children > td > table > tbody > tr:hover:first-child {
+  background-color: rgba(0, 0, 0, 0.075);
+}
