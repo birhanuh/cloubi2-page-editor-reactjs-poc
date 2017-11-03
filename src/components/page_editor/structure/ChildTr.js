@@ -46,7 +46,7 @@ class ChildTr extends Component {
     event.preventDefault()
     event.stopPropagation();
 
-    $('.collapse').collapse()
+    $('.'+id+'').collapse('toggle')
   
     this.setState({
       currentTrId: id,
@@ -61,7 +61,7 @@ class ChildTr extends Component {
       }
     })
      
-    // Set clickedId fro mapStatesToProps
+    // Set clickedId for mapStatesToProps
     this.props = {
       clickedTrId: id
     }
@@ -107,7 +107,7 @@ class ChildTr extends Component {
     )
 
     return(        
-      <tr id={_id} onClick={this.handlePageFetch.bind(this, _id)} data-tt-id={""+_id+""} data-tt-parent-id={""+dataTTPrentId+""} className={classnames({children: children, spinner: isLoading })} >
+      <tr id={""+_id+""} onClick={this.handlePageFetch.bind(this, _id)} data-tt-id={""+_id+""} data-tt-parent-id={""+dataTTPrentId+""} className={classnames({children: children, spinner: isLoading })} >
         
         <td colSpan="6" className="p-0">
           <table width="100%">
@@ -151,7 +151,15 @@ class ChildTr extends Component {
                 </td> 
               </tr>
 
-              { currentTrId && childrenTrs }
+              <tr className={""+_id+" p-0"}>
+                <td colSpan="6" className="p-0">
+                  <table width="100%">
+                    <tbody> 
+                      { currentTrId && childrenTrs }
+                     </tbody>
+                  </table>
+                </td>
+              </tr>
 
             </tbody>
           </table>

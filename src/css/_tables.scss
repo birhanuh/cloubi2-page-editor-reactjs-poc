@@ -2,13 +2,13 @@
   vertical-align: middle;
 }
 
-.structure  > .table-responsive > table > tbody >  tr > td > table > tbody > tr > td > table > tbody > tr > td:first-child {
-  padding-left: 30px;
-}
-
 .structure  > .table-responsive > table > tbody >  tr > td > table > tbody > tr > td > table > tbody > tr > td > table > tbody > tr > td:first-child {
-  padding-left: 60px;
+  padding-left: 20px;
 } 
+
+.structure  > .table-responsive > table > tbody >  tr > td > table > tbody > tr > td > table > tbody > tr > td > table > tbody > tr > td > table > tbody > tr > td > table > tbody > tr > td:first-child {
+  padding-left: 40px;
+}
 
 .structure > .table-responsive > table > tbody >  tr.children > td > table > tbody > tr:hover:first-child {
   background-color: rgba(0, 0, 0, 0.075);
@@ -27,11 +27,11 @@
 }
 
 .table-responsive table thead tr th:first-child + th, .table-responsive table tbody tr td:first-child + td {
-  width: 30%;
+  width: 32%;
 }
 
 .table-responsive table thead tr th:first-child + th + th, .table-responsive table tbody tr td:first-child + td + td {
-  width: 25%;
+  width: 23%;
 }
 
 .table-responsive table thead tr th:first-child + th + th + th, .table-responsive table tbody tr td:first-child + td + td + td {

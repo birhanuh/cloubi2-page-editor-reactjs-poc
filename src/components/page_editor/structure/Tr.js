@@ -73,7 +73,7 @@ class Tr extends Component {
     event.preventDefault()
     event.stopPropagation()
 
-    $('.collapse').collapse()
+    $('.'+id+'').collapse('toggle')
   
     this.setState({
       currentTrId: id,
@@ -88,7 +88,7 @@ class Tr extends Component {
       }
     })
      
-    // Set clickedId fro mapStatesToProps
+    // Set clickedId for mapStatesToProps
     this.props = {
       clickedTrId: id
     }
@@ -134,13 +134,13 @@ class Tr extends Component {
     )
 
     return(        
-      <tr id={_id} onClick={this.handlePageFetch.bind(this, _id)} data-tt-id={""+_id+""} data-tt-parent-id={""+dataTTPrentId+""} className={classnames({children: children, spinner: isLoading })} >
+      <tr id={""+_id+""} onClick={this.handlePageFetch.bind(this, _id)} data-tt-id={""+_id+""} data-tt-parent-id={""+dataTTPrentId+""} className={classnames({children: children, spinner: isLoading })} >
         
         <td colSpan="6" className="p-0">
           <table width="100%">
             <tbody> 
               <tr>
-                <td id={_id}><input type="checkbox" aria-label="Checkbox for following text input" /></td>
+                <td><input type="checkbox" aria-label="Checkbox for following text input" /></td>
                 <td><a data-on-click={"selectNode("+_id+")"}>{iconElement}&nbsp;&nbsp;{name.value}</a></td>
                 {typeOnClickAction}
                 <td>
@@ -178,7 +178,15 @@ class Tr extends Component {
                 </td> 
               </tr>
 
-              { currentTrId && childrenTrs }
+              <tr className={""+_id+" p-0"}>
+                <td colSpan="6" className="p-0">
+                  <table width="100%">
+                    <tbody> 
+                      { currentTrId && childrenTrs }
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
 
             </tbody>
           </table>
