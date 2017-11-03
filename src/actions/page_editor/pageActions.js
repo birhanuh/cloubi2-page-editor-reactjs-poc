@@ -1,5 +1,5 @@
 import { objectAPI } from '../../utils'
-import { SET_PAGES, PAGE_FETCHED } from '../types'
+import { SET_PAGES, PARENT_PAGE_FETCHED, CHILD_PAGE_FETCHED } from '../types'
 
 export function setPages(pages) {
   return {
@@ -8,10 +8,17 @@ export function setPages(pages) {
   }
 }
 
-export function pageFetched(page) {
+export function parentPageFetched(parentPage) {
   return {
-    type: PAGE_FETCHED,
-    page
+    type: PARENT_PAGE_FETCHED,
+    parentPage
+  }
+}
+
+export function childPageFetched(childPage) {
+  return {
+    type: CHILD_PAGE_FETCHED,
+    childPage
   }
 }
 
@@ -25,12 +32,23 @@ export function fetchPages() {
   }
 }
 
-export function fetchPage(id) {
+export function fetchParentPage(id) {
   return dispatch => {
     return objectAPI.getPage(id, (page) => {
       if (page) {
-        dispatch(pageFetched(page))
+        dispatch(parentPageFetched(page))
       }
     })
   }
 }
+
+export function fetchChildPage(id) {
+  return dispatch => {
+    return objectAPI.getPage(id, (page) => {
+      if (page) {
+        dispatch(childPageFetched(page))
+      }
+    })
+  }
+}
+

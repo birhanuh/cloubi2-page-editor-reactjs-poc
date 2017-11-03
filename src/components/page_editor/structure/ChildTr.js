@@ -2,14 +2,12 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import { fetchParentPage } from '../../../actions/page_editor/pageActions.js'
+import { fetchChildPage } from '../../../actions/page_editor/pageActions.js'
 
 // Import collapse module
 import 'bootstrap/js/dist/collapse'
 
-import ChildTr from './ChildTr'
-
-class Tr extends Component {
+class ChildTr extends Component {
 
   constructor(props) {
     super(props)
@@ -55,32 +53,7 @@ class Tr extends Component {
       isLoading: false
     })
 
-    this.props.fetchParentPage(id, (page) => {
-      if (page) {
-        this.setState({
-          isLoading: false
-        })
-      }
-    })
-     
-    // Set clickedId fro mapStatesToProps
-    this.props = {
-      clickedTrId: id
-    }
-  }
-
-  handleCollapse = (id, event) => {
-    event.preventDefault()
-    event.stopPropagation();
-
-    $('.collapse').collapse()
-  
-    this.setState({
-      currentTrId: id,
-      isLoading: false
-    })
-
-    this.props.fetchParentPage(id, (page) => {
+    this.props.fetchChildPage(id, (page) => {
       if (page) {
         this.setState({
           isLoading: false
@@ -124,9 +97,9 @@ class Tr extends Component {
       children ? <i className="fa fa-folder-o" aria-hidden="true"></i> :
         <i className="fa fa-file-text-o" aria-hidden="true"></i>
     )
-        console.log('page: ', this.props.page)
+    console.log('child page: ', this.props.page)
     const childrenTrs = (
-      Array.isArray(this.props.page.children) && this.props.page.children.map(page => <ChildTr key={page._id} page={page} />)  
+      Array.isArray(this.props.page.children) && this.props.page.children.map(page => <ChildTr key={page._id} page={page} onClick={this.handleCollapse.bind(this, page._id)} fetchParentPage={this.props.fetchParentPage} fetchChildPage={this.props.fetchChildPage}/>)  
     )
 
     const faSpinner = (
@@ -190,9 +163,9 @@ class Tr extends Component {
   }
 }
 
-Tr.propTypes = {
+ChildTr.propTypes = {
   page: PropTypes.object.isRequired,
-  fetchParentPage: PropTypes.func.isRequired
+  fetchChildPage: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state, props) {
@@ -207,5 +180,5 @@ function mapStateToProps(state, props) {
   }
 }
 
-export default connect(mapStateToProps, { fetchParentPage })(Tr)
+export default connect(mapStateToProps, { fetchChildPage })(ChildTr)
 

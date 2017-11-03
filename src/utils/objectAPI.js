@@ -257,7 +257,7 @@ export default {
           _parentId: 2,
           children: false,
           name: {
-            value: 'Sub Chapter 1, Exercise 1',
+            value: 'Chapter 2, Exercise 1',
             url: 'http://placehold.it/32x3'
           },
           type: {
@@ -306,7 +306,7 @@ export default {
         _id: 3,
         _parentId: 2,
         name: {
-          value: 'Chapter2, Sub Chapter 1',
+          value: 'Chapter3, Sub Chapter 1',
           url: 'http://placehold.it/32x3'
         },
         type: {
@@ -352,7 +352,7 @@ export default {
           _parentId: 3,
           children: false,
           name: {
-            value: 'Chapter2, Sub Chapter 1, Content 1',
+            value: 'Chapter3, Exercise 1',
             url: 'http://placehold.it/32x3'
           },
           type: {
@@ -399,7 +399,7 @@ export default {
           _parentId: 3,
           children: false,
           name: {
-            value: 'Chapter2, Sub Chapter 1, Content 2',
+            value: 'Chapter3, Exercise 2',
             url: 'http://placehold.it/32x3'
           },
           type: {

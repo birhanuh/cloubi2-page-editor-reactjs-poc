@@ -40,7 +40,7 @@ class Table extends Component {
     // setTimeout(() => {
     //   this.setState({ title: 'Title updated' })
     // }, 3000)
-
+    console.log('pages: ', this.props.pages)
     return(
       <div className="table-responsive">
         <table className="table">
@@ -76,7 +76,7 @@ Table.propTypes = {
   fetchPages: PropTypes.func.isRequired
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state, props) {
   return {
     pages: state.pages
   }

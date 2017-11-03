@@ -155,3 +155,37 @@ body {
 .alert.alert-danger {
   background-color: rgba(231, 75, 60, 0.8);
 }
+
+// Spinner
+.fa.fa-spinner {
+  position: absolute;
+  font-size: 3em;
+  top: 10px
+} 
+
+@keyframes spinner {
+  to {transform: rotate(360deg);}
+}
+ 
+.spinner:after {
+  content: '';
+  box-sizing: border-box;
+  position: absolute;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
+  margin-left: -10px;
+  border-radius: 50%;
+  border: 4px solid #ccc;
+  border-top-color: #333;
+  animation: spinner .6s linear infinite;
+}
+
+.spinner {
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+}
