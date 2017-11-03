@@ -40,7 +40,7 @@ class Table extends Component {
     // setTimeout(() => {
     //   this.setState({ title: 'Title updated' })
     // }, 3000)
-    console.log('pages: ', this.props.pages)
+    console.log('Table: ', this.props.pages)
     return(
       <div className="table-responsive">
         <table className="table">

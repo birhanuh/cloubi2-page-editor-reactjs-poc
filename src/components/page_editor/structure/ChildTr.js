@@ -42,7 +42,7 @@ class ChildTr extends Component {
     }
   }
 
-  handleCollapse = (id, event) => {
+  handlePageFetch = (id, event) => {
     event.preventDefault()
     event.stopPropagation();
 
@@ -97,9 +97,9 @@ class ChildTr extends Component {
       children ? <i className="fa fa-folder-o" aria-hidden="true"></i> :
         <i className="fa fa-file-text-o" aria-hidden="true"></i>
     )
-    console.log('child page: ', this.props.page)
+    console.log('ChildTr: ', this.props.page)
     const childrenTrs = (
-      Array.isArray(this.props.page.children) && this.props.page.children.map(page => <ChildTr key={page._id} page={page} onClick={this.handleCollapse.bind(this, page._id)} fetchParentPage={this.props.fetchParentPage} fetchChildPage={this.props.fetchChildPage}/>)  
+      Array.isArray(this.props.page.children) && this.props.page.children.map(page => <ChildTr key={page._id} page={page} onClick={this.handlePageFetch.bind(this, page._id)} fetchParentPage={this.props.fetchParentPage} fetchChildPage={this.props.fetchChildPage}/>)  
     )
 
     const faSpinner = (
@@ -107,7 +107,7 @@ class ChildTr extends Component {
     )
 
     return(        
-      <tr id={_id} onClick={this.handleCollapse.bind(this, _id)} data-tt-id={""+_id+""} data-tt-parent-id={""+dataTTPrentId+""} className={classnames({children: children, spinner: isLoading })} >
+      <tr id={_id} onClick={this.handlePageFetch.bind(this, _id)} data-tt-id={""+_id+""} data-tt-parent-id={""+dataTTPrentId+""} className={classnames({children: children, spinner: isLoading })} >
         
         <td colSpan="6" className="p-0">
           <table width="100%">
