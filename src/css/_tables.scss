@@ -1,4 +1,9 @@
-.table th, .table td {
+.structure  > .table-responsive > table {
+  border-collapse: separate;
+  border-spacing: 5px;
+}
+
+.structure  > .table-responsive > .table th, .structure  > .table-responsive > .table td {
   vertical-align: middle;
 }
 
@@ -22,8 +27,39 @@
   position: relative;
 }
 
-.table-responsive table thead tr th:first-child, .table-responsive table tbody tr td:first-child {
-  width: 2%;
+.structure  > .table-responsive > table > thead > tr > th, .structure  > .table-responsive > table > tbody > tr > td {
+  border: none;
+}
+
+.table-responsive > table > tbody > tr {
+  > td:first-child {
+    width: 2%;
+    border: 1px solid $light-gray;
+    border-radius: 5px;
+  }
+  > td > table > tbody > tr:last-child > td > table {
+   border-collapse: separate;
+  }
+  > td > table > tbody > tr > td {
+   border: none;
+  }
+  > td > table > tbody > tr:last-child > td > table > tbody > tr > td {
+    border: 1px solid $light-gray;
+    border-radius: 5px;
+  }
+  > td > table > tbody > tr:last-child > td > table > tbody > tr > td > table > tbody > tr > td {
+   border: none;
+  }
+  > td > table > tbody > tr:last-child > td > table > tbody > tr > td > table > tbody > tr:last-child > td > table {
+    border-collapse: separate;
+  }
+  > td > table > tbody > tr:last-child > td > table > tbody > tr > td > table > tbody > tr:last-child > td > table > tbody > tr > td {
+    border: 1px solid $light-gray;
+    border-radius: 5px;
+  }
+  > td > table > tbody > tr:last-child > td > table > tbody > tr > td > table > tbody > tr:last-child > td > table > tbody > tr > td >  table > tbody > tr > td {
+    border: none;
+  }
 }
 
 .table-responsive table thead tr th:first-child + th, .table-responsive table tbody tr td:first-child + td {
@@ -36,5 +72,13 @@
 
 .table-responsive table thead tr th:first-child + th + th + th, .table-responsive table tbody tr td:first-child + td + td + td {
   width: 15%;
+}
+
+.children.show {
+  background-color: $x-light-gray;
+}
+
+.children.collapse {
+  display: table-row;
 }
 

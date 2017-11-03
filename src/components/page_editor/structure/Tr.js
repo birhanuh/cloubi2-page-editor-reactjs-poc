@@ -134,7 +134,7 @@ class Tr extends Component {
     )
 
     return(        
-      <tr id={""+_id+""} onClick={this.handlePageFetch.bind(this, _id)} data-tt-id={""+_id+""} data-tt-parent-id={""+dataTTPrentId+""} className={classnames({children: children, spinner: isLoading })} >
+      <tr id={""+_id+""} onClick={this.handlePageFetch.bind(this, _id)} data-tt-id={""+_id+""} data-tt-parent-id={""+dataTTPrentId+""} className={classnames(""+_id+"", {children: children, spinner: isLoading })} >
         
         <td colSpan="6" className="p-0">
           <table width="100%">
