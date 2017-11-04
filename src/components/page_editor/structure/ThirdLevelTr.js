@@ -1,15 +1,8 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import { fetchParentPage } from '../../../actions/page_editor/pageActions.js'
 
-// Import collapse module
-import 'bootstrap/js/dist/collapse'
-
-import ChildTr from './ChildTr'
-
-class Tr extends Component {
+class ThirdLevelTr extends Component {
 
   constructor(props) {
     super(props)
@@ -39,58 +32,7 @@ class Tr extends Component {
         importPagesUrl: this.props.page ? this.props.page.actions.importPages.url : '',
         deletePageUrl: this.props.page ? this.props.page.actions.deletePage.url : ''
       },
-      currentTrId: null,
-      isLoading: false
-    }
-  }
-
-  handlePageFetch = (id, event) => {
-    event.preventDefault()
-    event.stopPropagation();
-
-    $('.collapse').collapse()
-  
-    this.setState({
-      currentTrId: id,
-      isLoading: false
-    })
-
-    this.props.fetchParentPage(id, (page) => {
-      if (page) {
-        this.setState({
-          isLoading: false
-        })
-      }
-    })
-     
-    // Set clickedId fro mapStatesToProps
-    this.props = {
-      clickedTrId: id
-    }
-  }
-
-  handlePageFetch = (id, event) => {
-    event.preventDefault()
-    event.stopPropagation()
-
-    $('.'+id+'').collapse('toggle')
-  
-    this.setState({
-      currentTrId: id,
-      isLoading: false
-    })
-
-    this.props.fetchParentPage(id, (page) => {
-      if (page) {
-        this.setState({
-          isLoading: false
-        })
-      }
-    })
-     
-    // Set clickedId for mapStatesToProps
-    this.props = {
-      clickedTrId: id
+      currentTrId: null
     }
   }
 
@@ -124,23 +66,16 @@ class Tr extends Component {
       children ? <i className="fa fa-folder-o" aria-hidden="true"></i> :
         <i className="fa fa-file-text-o" aria-hidden="true"></i>
     )
-    console.log('Tr: ', this.props.page)
-    const childrenTrs = (
-      Array.isArray(this.props.page.children) && this.props.page.children.map(page => <ChildTr key={page._id} page={page} />)  
-    )
-
-    const faSpinner = (
-      <div className="loader">Loading...</div>
-    )
+    console.log('ThirdLevelTr: ', this.props.page)
 
     return(        
-      <tr id={""+_id+""} onClick={this.handlePageFetch.bind(this, _id)} data-tt-id={""+_id+""} data-tt-parent-id={""+dataTTPrentId+""} className={classnames(""+_id+"", {children: children, spinner: isLoading })} >
+      <tr id={""+_id+""} data-tt-id={""+_id+""} data-tt-parent-id={""+dataTTPrentId+""} className={classnames({children: children })} >
         
         <td colSpan="6" className="p-0">
           <table width="100%">
             <tbody> 
               <tr>
-                <td><input type="checkbox" aria-label="Checkbox for following text input" /></td>
+                <td id={_id}><input type="checkbox" aria-label="Checkbox for following text input" /></td>
                 <td><a data-on-click={"selectNode("+_id+")"}>{iconElement}&nbsp;&nbsp;{name.value}</a></td>
                 {typeOnClickAction}
                 <td>
@@ -178,16 +113,6 @@ class Tr extends Component {
                 </td> 
               </tr>
 
-              <tr className={""+_id+" p-0"}>
-                <td colSpan="6" className="p-0">
-                  <table width="100%">
-                    <tbody> 
-                      { currentTrId && childrenTrs }
-                    </tbody>
-                  </table>
-                </td>
-              </tr>
-
             </tbody>
           </table>
         </td>        
@@ -198,22 +123,9 @@ class Tr extends Component {
   }
 }
 
-Tr.propTypes = {
-  page: PropTypes.object.isRequired,
-  fetchParentPage: PropTypes.func.isRequired
+ThirdLevelTr.propTypes = {
+  page: PropTypes.object.isRequired
 }
 
-function mapStateToProps(state, props) {
-  const id = props.clickedTrId
-  if (id) {
-    return {
-      page: state.pages.find(item => item._id === id)
-    }
-  }
-  return {
-
-  }
-}
-
-export default connect(mapStateToProps, { fetchParentPage })(Tr)
+export default ThirdLevelTr
 

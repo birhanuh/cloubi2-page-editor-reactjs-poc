@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { fetchPages } from '../../../actions/page_editor/pageActions.js'
+import { fetchFirstLevelPages } from '../../../actions/page_editor/pageActions.js'
 
-import Tr from './Tr'
+import FirstLevelTr from './FirstLevelTr'
 
 class Table extends Component {
   constructor() {
@@ -14,7 +14,7 @@ class Table extends Component {
   }
 
   componentDidMount = () => {
-    this.props.fetchPages()
+    this.props.fetchFirstLevelPages()
   }
 
   render() {
@@ -32,8 +32,8 @@ class Table extends Component {
 
     const pagesList = (  
       <tbody>               
-        {/* Import Tr component */}  
-        { this.props.pages.map(page => <Tr key={page._id} page={page} />) }  
+        {/* Import FirstLevelTr component */}  
+        { this.props.pages.map(page => <FirstLevelTr key={page._id} page={page} />) }  
       </tbody>        
     )
 
@@ -73,7 +73,7 @@ class Table extends Component {
 }
 
 Table.propTypes = {
-  fetchPages: PropTypes.func.isRequired
+  fetchFirstLevelPages: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state, props) {
@@ -82,4 +82,4 @@ function mapStateToProps(state, props) {
   }
 }
 
-export default connect(mapStateToProps, { fetchPages })(Table)
+export default connect(mapStateToProps, { fetchFirstLevelPages })(Table)

@@ -1,52 +1,52 @@
 import { objectAPI } from '../../utils'
-import { SET_PAGES, PARENT_PAGE_FETCHED, CHILD_PAGE_FETCHED } from '../types'
+import { SET_FIRST_LEVEL_PAGES, FIRST_LEVEL_PAGE_FETCHED, SECOND_LEVEL_PAGE_FETCHED } from '../types'
 
-export function setPages(pages) {
+export function setFirstLevelPages(pages) {
   return {
-    type: SET_PAGES,
+    type: SET_FIRST_LEVEL_PAGES,
     pages
   }
 }
 
-export function parentPageFetched(parentPage) {
+export function firstLevelPageFetched(firstLevelPage) {
   return {
-    type: PARENT_PAGE_FETCHED,
-    parentPage
+    type: FIRST_LEVEL_PAGE_FETCHED,
+    firstLevelPage
   }
 }
 
-export function childPageFetched(childPage) {
+export function secondLevelPageFetched(secondLevelPage) {
   return {
-    type: CHILD_PAGE_FETCHED,
-    childPage
+    type: SECOND_LEVEL_PAGE_FETCHED,
+    secondLevelPage
   }
 }
 
-export function fetchPages() {
+export function fetchFirstLevelPages() {
   return dispatch => {
     return objectAPI.getPages((pages) => {
       if (pages) {
-        dispatch(setPages(pages)) 
+        dispatch(setFirstLevelPages(pages)) 
       }
     })
   }
 }
 
-export function fetchParentPage(id) {
+export function fetchFirstLevelPage(id) {
   return dispatch => {
     return objectAPI.getPage(id, (page) => {
       if (page) {
-        dispatch(parentPageFetched(page))
+        dispatch(firstLevelPageFetched(page))
       }
     })
   }
 }
 
-export function fetchChildPage(id) {
+export function fetchSecondLevelPage(id) {
   return dispatch => {
     return objectAPI.getPage(id, (page) => {
       if (page) {
-        dispatch(childPageFetched(page))
+        dispatch(secondLevelPageFetched(page))
       }
     })
   }

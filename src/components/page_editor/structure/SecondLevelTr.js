@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import { fetchChildPage } from '../../../actions/page_editor/pageActions.js'
+import { fetchSecondLevelPage } from '../../../actions/page_editor/pageActions.js'
 
 // Import collapse module
 import 'bootstrap/js/dist/collapse'
 
-class ChildTr extends Component {
+import ThirdLevelTr from './ThirdLevelTr'
+
+class SecondLevelTr extends Component {
 
   constructor(props) {
     super(props)
@@ -53,7 +55,7 @@ class ChildTr extends Component {
       isLoading: false
     })
 
-    this.props.fetchChildPage(id, (page) => {
+    this.props.fetchSecondLevelPage(id, (page) => {
       if (page) {
         this.setState({
           isLoading: false
@@ -97,9 +99,9 @@ class ChildTr extends Component {
       children ? <i className="fa fa-folder-o" aria-hidden="true"></i> :
         <i className="fa fa-file-text-o" aria-hidden="true"></i>
     )
-    console.log('ChildTr: ', this.props.page)
-    const childrenTrs = (
-      Array.isArray(this.props.page.children) && this.props.page.children.map(page => <ChildTr key={page._id} page={page} onClick={this.handlePageFetch.bind(this, page._id)} fetchParentPage={this.props.fetchParentPage} fetchChildPage={this.props.fetchChildPage}/>)  
+    console.log('SecondLevelTr: ', this.props.page)
+    const thirdLevelTrs = (
+      Array.isArray(this.props.page.children) && this.props.page.children.map(page => <ThirdLevelTr key={page._id} page={page} />)  
     )
 
     const faSpinner = (
@@ -155,7 +157,7 @@ class ChildTr extends Component {
                 <td colSpan="6" className="p-0">
                   <table width="100%">
                     <tbody> 
-                      { currentTrId && childrenTrs }
+                      { currentTrId && thirdLevelTrs }
                      </tbody>
                   </table>
                 </td>
@@ -171,9 +173,9 @@ class ChildTr extends Component {
   }
 }
 
-ChildTr.propTypes = {
+SecondLevelTr.propTypes = {
   page: PropTypes.object.isRequired,
-  fetchChildPage: PropTypes.func.isRequired
+  fetchSecondLevelPage: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state, props) {
@@ -188,5 +190,5 @@ function mapStateToProps(state, props) {
   }
 }
 
-export default connect(mapStateToProps, { fetchChildPage })(ChildTr)
+export default connect(mapStateToProps, { fetchSecondLevelPage })(SecondLevelTr)
 
