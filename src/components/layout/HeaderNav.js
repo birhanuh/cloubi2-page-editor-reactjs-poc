@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 
-import 'bootstrap/js/dist/util'
 import 'bootstrap/js/dist/dropdown'
 
 // Localization 
