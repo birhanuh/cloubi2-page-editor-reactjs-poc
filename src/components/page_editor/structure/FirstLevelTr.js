@@ -44,6 +44,15 @@ class FirstLevelTr extends Component {
     }
   }
 
+  componentDidMount = () => {
+    $(".custom-select-sm").click(function(e) {
+      e.stopPropagation()
+    })
+    $('.dropdown-toggle').dropdown(function(e){
+      e.stopPropagation()
+    })
+  }
+
   handlePageFetch = (id, event) => {
     event.preventDefault()
     event.stopPropagation();
@@ -156,7 +165,7 @@ class FirstLevelTr extends Component {
                 </td>
                 <td>{lastModified}<span></span></td>
                 <td className="text-center">
-                  <button className="btn btn-sm btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <button className="btn btn-sm btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i className="fa fa-cogs" aria-hidden="true"></i>
                   </button>
                   <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">

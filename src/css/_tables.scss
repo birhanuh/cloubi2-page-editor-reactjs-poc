@@ -7,20 +7,12 @@
   vertical-align: middle;
 }
 
-.structure  > .table-responsive > table > tbody >  tr > td > table > tbody > tr > td > table > tbody > tr > td > table > tbody > tr > td:first-child {
-  padding-left: 20px;
-} 
-
-.structure  > .table-responsive > table > tbody >  tr > td > table > tbody > tr > td > table > tbody > tr > td > table > tbody > tr > td > table > tbody > tr > td > table > tbody > tr > td:first-child {
-  padding-left: 40px;
-}
-
 .structure > .table-responsive > table > tbody >  tr.children > td > table > tbody > tr:hover:first-child {
-  background-color: rgba(0, 0, 0, 0.075);
+  background-color: $x-light-gray;
 }
 
 .structure > .table-responsive > table > tbody >  tr.children > td > table > tbody > tr > td > table > tbody > tr.children > td > table > tbody > tr:hover:first-child {
-  background-color: rgba(0, 0, 0, 0.075);
+  background-color: $x-light-gray;
 }
 
 .table-responsive table table {
@@ -42,6 +34,10 @@
   }
   > td > table > tbody > tr > td {
    border: none;
+   padding-left: 10px !important;
+  }
+  > td > table > tbody > tr > td > table > tbody > tr > td > table > tbody > tr:last-child > td {
+    padding-left: 10px !important;
   }
   > td > table > tbody > tr:last-child > td > table > tbody > tr > td {
     border: 1px solid $light-gray;
@@ -63,11 +59,11 @@
 }
 
 .table-responsive table thead tr th:first-child + th, .table-responsive table tbody tr td:first-child + td {
-  width: 32%;
+  width: 33%;
 }
 
 .table-responsive table thead tr th:first-child + th + th, .table-responsive table tbody tr td:first-child + td + td {
-  width: 23%;
+  width: 22%;
 }
 
 .table-responsive table thead tr th:first-child + th + th + th, .table-responsive table tbody tr td:first-child + td + td + td {
@@ -75,7 +71,7 @@
 }
 
 .children.show {
-  background-color: $x-light-gray;
+  background-color: $xx-light-gray;
 }
 
 .children.collapse {

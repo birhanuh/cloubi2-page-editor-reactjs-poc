@@ -44,6 +44,15 @@ class SecondLevelTr extends Component {
     }
   }
 
+  componentDidMount = () => {
+    $(".custom-select-sm").click(function(e) {
+      e.stopPropagation()
+    })
+    $('.dropdown-toggle').dropdown(function(e){
+      e.stopPropagation()
+    })
+  }
+  
   handlePageFetch = (id, event) => {
     event.preventDefault()
     event.stopPropagation();

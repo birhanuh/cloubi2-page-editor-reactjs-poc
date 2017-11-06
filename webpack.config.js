@@ -6,7 +6,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 module.exports = {
   entry: {
     app: './src/index.js',
-    //page_editor: './src/components/page_editor/structure/Page.js'
+    //pageEditor: './src/components/page_editor/structure/Page.js'
   },  
   output: {
     filename: '[name].bundle.js',
@@ -19,7 +19,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './public/index.html'
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',

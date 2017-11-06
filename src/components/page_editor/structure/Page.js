@@ -4,10 +4,6 @@ import Table from './Table'
 
 class Page extends Component {
 
-  constructor(){
-    super()
-  }
-
   render() {
 
     return(
