@@ -51,31 +51,12 @@ class FirstLevelTr extends Component {
     $('.dropdown-toggle').dropdown(function(e){
       e.stopPropagation()
     })
-  }
-
-  handlePageFetch = (id, event) => {
-    event.preventDefault()
-    event.stopPropagation();
-
-    $('.collapse').collapse()
-  
-    this.setState({
-      currentTrId: id,
-      isLoading: false
+    $('.page-id.checkbox').click(function(e){
+      e.stopPropagation()
     })
-
-    this.props.fetchFirstLevelPage(id, (page) => {
-      if (page) {
-        this.setState({
-          isLoading: false
-        })
-      }
+    $('.show-page-preview').click(function(e){
+      e.stopPropagation()
     })
-     
-    // Set clickedId fro mapStatesToProps
-    this.props = {
-      clickedTrId: id
-    }
   }
 
   handlePageFetch = (id, event) => {
@@ -83,7 +64,12 @@ class FirstLevelTr extends Component {
     event.stopPropagation()
 
     $('.'+id+'').collapse('toggle')
-  
+    
+    // If firstLevelTr is not in 'show' state remove 'show' class from all chid trs
+    if(!$('.'+id+'').hasClass('show')) {
+      $('tr').removeClass('show')
+    }
+
     this.setState({
       currentTrId: id,
       isLoading: false
@@ -118,10 +104,10 @@ class FirstLevelTr extends Component {
 
     switch(type.value) {
       case "Navigation menu":
-        typeOnClickAction = (<td><a data-on-click="showPagePreview('+type.url+')">{type.value}</a></td>)
+        typeOnClickAction = (<td><a className="show-page-preview" data-on-click={"showPagePreview("+type.url+")"}>{type.value}</a></td>)
         break
       case "Content page":
-        typeOnClickAction = (<td><a data-on-click="openExternalEditor('+type.url+')">{type.value}</a></td>)
+        typeOnClickAction = (<td><a className="show-page-preview" data-on-click={"openExternalEditor("+type.url+")"}>{type.value}</a></td>)
         break
       default:
         typeOnClickAction = (<td>Unknown action!</td>)
@@ -143,13 +129,13 @@ class FirstLevelTr extends Component {
     )
 
     return(        
-      <tr id={""+_id+""} onClick={this.handlePageFetch.bind(this, _id)} data-tt-id={""+_id+""} data-tt-parent-id={""+dataTTPrentId+""} className={classnames(""+_id+"", {children: children, spinner: isLoading })} >
+      <tr id={""+_id+""} onClick={this.handlePageFetch.bind(this, _id)} data-tt-id={""+_id+""} className={classnames(""+_id+" first-level-tr", {children: children, spinner: isLoading })}>
         
         <td colSpan="6" className="p-0">
           <table width="100%">
             <tbody> 
               <tr>
-                <td><input type="checkbox" aria-label="Checkbox for following text input" /></td>
+                <td><input type="checkbox" aria-label="Checkbox for following text input" className="page-id checkbox" /></td>
                 <td><a data-on-click={"selectNode("+_id+")"}>{iconElement}&nbsp;&nbsp;{name.value}</a></td>
                 {typeOnClickAction}
                 <td>

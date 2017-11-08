@@ -70,11 +70,15 @@
   width: 15%;
 }
 
-.children.show {
+.first-level-tr.show {
   background-color: $xx-light-gray;
 }
 
-.children.collapse {
+.first-level-tr.collapse {
   display: table-row;
+}
+
+.table-responsive .show-page-preview {
+  cursor: pointer;
 }
 

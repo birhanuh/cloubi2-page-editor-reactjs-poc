@@ -34,8 +34,15 @@ body {
     padding: 0;
     border: 1px solid $white;
   }
-  .nav-item {
+  .nav-item, .nav-link {
     color: $white;
+  }
+  .toggle-bar {
+    border-right: 1px solid $dark-orange;
+    border-left: 1px solid $dark-orange;
+  }
+  .navbar-brand {
+    margin-left: -15px;
   }
   .dropdown-item {
     color: $body-color;
@@ -44,10 +51,6 @@ body {
     color: $body-color;
     background-color: $xx-light-gray;
   }
-}
-
-.navbar-brand {
-  width: 100px;
 }
 
 // Container

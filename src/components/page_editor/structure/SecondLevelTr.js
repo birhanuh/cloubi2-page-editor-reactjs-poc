@@ -43,7 +43,7 @@ class SecondLevelTr extends Component {
       isLoading: false
     }
   }
-
+  
   componentDidMount = () => {
     $(".custom-select-sm").click(function(e) {
       e.stopPropagation()
@@ -51,8 +51,14 @@ class SecondLevelTr extends Component {
     $('.dropdown-toggle').dropdown(function(e){
       e.stopPropagation()
     })
+    $('.page-id.checkbox').click(function(e){
+      e.stopPropagation()
+    })
+    $('.show-page-preview').click(function(e){
+      e.stopPropagation()
+    })
   }
-  
+
   handlePageFetch = (id, event) => {
     event.preventDefault()
     event.stopPropagation();
@@ -93,10 +99,10 @@ class SecondLevelTr extends Component {
 
     switch(type.value) {
       case "Navigation menu":
-        typeOnClickAction = (<td><a data-on-click="showPagePreview('+type.url+')">{type.value}</a></td>)
+        typeOnClickAction = (<td><a className="show-page-preview" data-on-click={"showPagePreview("+type.url+")"}>{type.value}</a></td>)
         break
       case "Content page":
-        typeOnClickAction = (<td><a data-on-click="openExternalEditor('+type.url+')">{type.value}</a></td>)
+        typeOnClickAction = (<td><a className="show-page-preview" data-on-click={"openExternalEditor("+type.url+")"}>{type.value}</a></td>)
         break
       default:
         typeOnClickAction = (<td>Unknown action!</td>)
@@ -118,13 +124,13 @@ class SecondLevelTr extends Component {
     )
 
     return(        
-      <tr id={""+_id+""} onClick={this.handlePageFetch.bind(this, _id)} data-tt-id={""+_id+""} data-tt-parent-id={""+dataTTPrentId+""} className={classnames({children: children, spinner: isLoading })} >
+      <tr id={""+_id+""} onClick={this.handlePageFetch.bind(this, _id)} data-tt-id={""+_id+""} className={classnames({children: children, spinner: isLoading })} data-tt-parent-id={""+dataTTPrentId+""}>
         
         <td colSpan="6" className="p-0">
           <table width="100%">
             <tbody> 
               <tr>
-                <td id={_id}><input type="checkbox" aria-label="Checkbox for following text input" /></td>
+                <td id={_id}><input type="checkbox" aria-label="Checkbox for following text input" className="page-id checkbox" /></td>
                 <td><a data-on-click={"selectNode("+_id+")"}>{iconElement}&nbsp;&nbsp;{name.value}</a></td>
                 {typeOnClickAction}
                 <td>

@@ -35,7 +35,7 @@ class ThirdLevelTr extends Component {
       currentTrId: null
     }
   }
-
+  
   componentDidMount = () => {
     $(".custom-select-sm").click(function(e) {
       e.stopPropagation()
@@ -43,8 +43,14 @@ class ThirdLevelTr extends Component {
     $('.dropdown-toggle').dropdown(function(e){
       e.stopPropagation()
     })
+    $('.page-id.checkbox').click(function(e){
+      e.stopPropagation()
+    })
+    $('.show-page-preview').click(function(e){
+      e.stopPropagation()
+    })
   }
-  
+
   handleStateChange = () => {
 
   }
@@ -60,10 +66,10 @@ class ThirdLevelTr extends Component {
 
     switch(type.value) {
       case "Navigation menu":
-        typeOnClickAction = (<td><a data-on-click="showPagePreview('+type.url+')">{type.value}</a></td>)
+        typeOnClickAction = (<td><a className="show-page-preview" data-on-click={"showPagePreview("+type.url+")"}>{type.value}</a></td>)
         break
       case "Content page":
-        typeOnClickAction = (<td><a data-on-click="openExternalEditor('+type.url+')">{type.value}</a></td>)
+        typeOnClickAction = (<td><a className="show-page-preview" data-on-click={"openExternalEditor("+type.url+")"}>{type.value}</a></td>)
         break
       default:
         typeOnClickAction = (<td>Unknown action!</td>)
@@ -84,7 +90,7 @@ class ThirdLevelTr extends Component {
           <table width="100%">
             <tbody> 
               <tr>
-                <td id={_id}><input type="checkbox" aria-label="Checkbox for following text input" /></td>
+                <td id={_id}><input type="checkbox" aria-label="Checkbox for following text input" className="page-id checkbox" /></td>
                 <td><a data-on-click={"selectNode("+_id+")"}>{iconElement}&nbsp;&nbsp;{name.value}</a></td>
                 {typeOnClickAction}
                 <td>

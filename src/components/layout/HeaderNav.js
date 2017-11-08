@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+// Import dropdown module
 import 'bootstrap/js/dist/dropdown'
 
 // Localization 
@@ -13,11 +14,15 @@ class HeaderNav extends Component {
   render() {
     return(
         <header className="navbar navbar-expand-md fixed-top">
-          <a className="navbar-brand" href="#"><img src={logoInverted} alt="logo-inverted" /></a>
+          <a className="navbar-brand col-sm-3 col-md-2 text-center mr-1" href="/dashboard"><img src={logoInverted} alt="logo-inverted" width="100"/></a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
-
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item toggle-bar">
+              <a className="nav-link" href="#"><i className="fa fa-bars fa-lg" aria-hidden="true"></i></a>
+            </li>
+          </ul>
           <ul className="navbar-nav flex-row ml-md-auto d-none d-md-flex">
             <li className="nav-item">
               <img src={avatarPlaceholder} className="img-thumbnail avatar" alt="avatar-placeholder" width="40" height="40" />
