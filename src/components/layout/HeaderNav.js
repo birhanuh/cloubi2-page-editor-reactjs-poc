@@ -11,6 +11,16 @@ import logoInverted from '../../images/logo-inverted.svg'
 import avatarPlaceholder from '../../images/avatar-placeholder.png'
 
 class HeaderNav extends Component {      
+
+  handleToggleBar = (e) => {
+    e.preventDefault()
+
+    $("#sidebar").toggleClass("col-sm-3 col-md-2 col-sm-2 col-md-1")
+    $("#main").toggleClass("col-sm-9 col-md-10 col-sm-10 col-md-11")
+    $("#footer").toggleClass("col-sm-9 col-md-10 col-sm-10 col-md-11")
+
+  }
+
   render() {
     return(
         <header className="navbar navbar-expand-md fixed-top">
@@ -20,7 +30,7 @@ class HeaderNav extends Component {
           </button>
           <ul className="navbar-nav mr-auto">
             <li className="nav-item toggle-bar">
-              <a className="nav-link" href="#"><i className="fa fa-bars fa-lg" aria-hidden="true"></i></a>
+              <a className="nav-link" href="#" onClick={this.handleToggleBar.bind(this)}><i className="fa fa-bars fa-lg" aria-hidden="true"></i></a>
             </li>
           </ul>
           <ul className="navbar-nav flex-row ml-md-auto d-none d-md-flex">

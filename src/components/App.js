@@ -23,17 +23,18 @@ export default class App extends React.Component {
             {/* Import Sidebar component */}
             <Sidebar />
 
-            <main role="main" className="col-sm-9 ml-sm-auto col-md-10 pt-3">
+            <main role="main" id="main" className="col-sm-9 ml-sm-auto col-md-10 pt-3">
               
               {/* Import PageEditor component */}
               <PageEditor/>              
 
             </main>
+
+            {/* Import Footer component */}
+            <Footer/>
           </div>
-        </div>
         
-        {/* Import Sidebar component */}
-        <Footer/>
+        </div>
       </div>
     )
   }

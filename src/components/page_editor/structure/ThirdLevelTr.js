@@ -37,6 +37,11 @@ class ThirdLevelTr extends Component {
   }
   
   componentDidMount = () => {
+    $("#"+this.state._id+"").click(function(e) {
+      e.stopPropagation()
+      $('.dropdown-menu').removeClass('show')
+      $('td.text-center').removeClass('show')
+    })
     $(".custom-select-sm").click(function(e) {
       e.stopPropagation()
     })

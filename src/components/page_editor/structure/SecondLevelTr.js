@@ -168,7 +168,7 @@ class SecondLevelTr extends Component {
                 </td> 
               </tr>
 
-              <tr className={""+_id+" p-0"}>
+              <tr className={""+_id+" p-0 third-level-trs"}>
                 <td colSpan="6" className="p-0">
                   <table width="100%">
                     <tbody> 

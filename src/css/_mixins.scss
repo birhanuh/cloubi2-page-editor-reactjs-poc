@@ -33,19 +33,19 @@
 
 @mixin transition($options) {
   // e.g @include transition (2s ease-in)
-  -webkit-transition: opacity ($options);
-     -moz-transition: opacity ($options);
-       -o-transition: opacity ($options);
-      -ms-transition: opacity ($options);
-          transition: opacity ($options);
+  -webkit-transition: ($options);
+     -moz-transition: ($options);
+       -o-transition: ($options);
+      -ms-transition: ($options);
+          transition: ($options);
 }
 
-@mixin animation-delay($second) {
-  -webkit-animation-delay: ($second) !important;
-     -moz-animation-delay: ($second) !important;
-      -ms-animation-delay: ($second) !important;
-       -o-animation-delay: ($second) !important;
-          animation-delay: ($second) !important;
+@mixin animation-delay($seconds) {
+  -webkit-animation-delay: ($seconds) !important;
+     -moz-animation-delay: ($seconds) !important;
+      -ms-animation-delay: ($seconds) !important;
+       -o-animation-delay: ($seconds) !important;
+          animation-delay: ($seconds) !important;
 }
 
 @mixin animation-duration($second) {

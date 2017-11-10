@@ -44,7 +44,7 @@
 .btn-primary {
   background-color: $orange;
   &:hover, &:active, &:focus {
-    background-color: $light-orange;
+    background-color: $light-orange !important;
   } 
 }
 

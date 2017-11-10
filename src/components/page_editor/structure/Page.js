@@ -10,11 +10,9 @@ class Page extends Component {
       <div className="structure">
         <div className="row clearfix pt-4 pb-4">
           <div className="col-md-5">
-            <div className="float-left">
-              <div className="input-group">
-                <input type="text" className="form-control form-control-sm" id="inlineFormInputGroup" placeholder="Search" />
-                <div className="input-group-addon"><i className="fa fa-search" aria-hidden="true"></i></div>
-              </div>
+            <div className="input-group float-left">
+              <input type="text" className="form-control form-control-sm" id="inlineFormInputGroup" placeholder="Search" />
+              <div className="input-group-addon"><i className="fa fa-search" aria-hidden="true"></i></div>
             </div>
           </div>
           <div className="col-md-7">
