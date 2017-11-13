@@ -26,7 +26,9 @@ export function fetchFirstLevelPages() {
   return dispatch => {
     return objectAPI.getPages((pages) => {
       if (pages) {
-        dispatch(setFirstLevelPages(pages)) 
+        setTimeout(() => {
+          dispatch(setFirstLevelPages(pages))
+        }, 10000)
       }
     })
   }
@@ -36,7 +38,9 @@ export function fetchFirstLevelPage(id) {
   return dispatch => {
     return objectAPI.getPage(id, (page) => {
       if (page) {
-        dispatch(firstLevelPageFetched(page))
+        setTimeout(() => {
+          dispatch(firstLevelPageFetched(page))
+        }, 3000)
       }
     })
   }
@@ -46,7 +50,9 @@ export function fetchSecondLevelPage(id) {
   return dispatch => {
     return objectAPI.getPage(id, (page) => {
       if (page) {
-        dispatch(secondLevelPageFetched(page))
+        setTimeout(() => {
+          dispatch(secondLevelPageFetched(page))
+        }, 3000)
       }
     })
   }

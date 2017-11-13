@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 import { connect } from 'react-redux'
 import { fetchFirstLevelPages } from '../../../actions/page_editor/pageActions.js'
 
@@ -11,11 +12,24 @@ class Table extends Component {
   constructor() {
     super()
     this.state = {
-      FirstLevelTrs: []
+      isLoading: false
     }
   }
 
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps) {
+      if (nextProps.pages.length !== 0) {
+        this.setState({
+          isLoading: false
+        })
+      }
+    }
+  } 
+
   componentDidMount = () => {
+    this.setState({
+      isLoading: true
+    })
     this.props.fetchFirstLevelPages()
   }
 
@@ -41,8 +55,8 @@ class Table extends Component {
 
     console.log('Table: ', this.props.pages)
     return(
-      <div className="table-responsive">
-        <table className="table">
+      <div className="table-responsive" >
+        <table className={classnames('table', { spinner: this.state.isLoading })}>
           <thead>
             <tr>
               <th><input type="checkbox" aria-label="Checkbox for following text input" /></th>
@@ -57,7 +71,7 @@ class Table extends Component {
           { this.props.pages.length === 0 ? emptyMessage : pagesList}
 
         </table> 
-      {/*<h2>{this.state.title}</h2>*/}
+ 
         <div className="mt-5 mb-5">
           <div className="col-md-4 offset-md-4">
             <button type="button" className="btn btn-block btn-primary">

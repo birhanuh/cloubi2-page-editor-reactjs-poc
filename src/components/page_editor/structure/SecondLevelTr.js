@@ -43,6 +43,16 @@ class SecondLevelTr extends Component {
       isLoading: false
     }
   }
+
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps) {
+      if (nextProps.page.children.lenght !== 0) {
+        this.setState({
+          isLoading: false
+        })
+      }
+    }
+  } 
   
   componentDidMount = () => {
     $(".custom-select-sm").click(function(e) {
@@ -67,17 +77,11 @@ class SecondLevelTr extends Component {
   
     this.setState({
       currentTrId: id,
-      isLoading: false
+      isLoading: true
     })
+    
+    this.props.fetchSecondLevelPage(id)
 
-    this.props.fetchSecondLevelPage(id, (page) => {
-      if (page) {
-        this.setState({
-          isLoading: false
-        })
-      }
-    })
-     
     // Set clickedId for mapStatesToProps
     this.props = {
       clickedTrId: id
@@ -150,10 +154,6 @@ class SecondLevelTr extends Component {
     console.log('SecondLevelTr: ', this.props.page)
     const thirdLevelTrs = (
       Array.isArray(this.props.page.children) && this.props.page.children.map(page => <ThirdLevelTr key={page._id} page={page} />)  
-    )
-
-    const faSpinner = (
-      <div className="loader">Loading...</div>
     )
 
     return(        
