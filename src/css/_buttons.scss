@@ -75,10 +75,12 @@
 
 .btn-outline {
   color: $gray;
-  border-color: $gray;
+  background-color: $white;
+  border: 1px solid $gray;
   &:hover, &:active, &:focus {
     color: $white !important;
     background-color: $gray;
+    border-color: $gray;
   } 
 }
 
@@ -89,6 +91,7 @@
   &:hover, &:active, &:focus {
     color: $white;
     background-color: $orange;
+    border-color: $orange;
   } 
 }
 
@@ -99,5 +102,6 @@
   &:hover, &:active, &:focus {
     color: $white;
     background-color: $blue;
+    border-color: $blue;
   } 
 }

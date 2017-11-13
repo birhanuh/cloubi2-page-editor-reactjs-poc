@@ -3,13 +3,15 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { fetchFirstLevelPages } from '../../../actions/page_editor/pageActions.js'
 
+//import { SortableContainer, SortableElement, arryMove } from 'react-sortable-hoc'
+
 import FirstLevelTr from './FirstLevelTr'
 
 class Table extends Component {
   constructor() {
     super()
     this.state = {
-      title: 'Title'
+      FirstLevelTrs: []
     }
   }
 
@@ -31,15 +33,12 @@ class Table extends Component {
     )
 
     const pagesList = (  
-      <tbody>               
+     <tbody>               
         {/* Import FirstLevelTr component */}  
         { this.props.pages.map(page => <FirstLevelTr key={page._id} page={page} />) }  
       </tbody>        
     )
 
-    // setTimeout(() => {
-    //   this.setState({ title: 'Title updated' })
-    // }, 3000)
     console.log('Table: ', this.props.pages)
     return(
       <div className="table-responsive">

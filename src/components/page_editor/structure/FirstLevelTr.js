@@ -89,14 +89,47 @@ class FirstLevelTr extends Component {
     }
   }
 
-  handleStateChange = () => {
+  handleChange = () => {
 
+  }
+
+  handleEditName = (id, event) => {
+    event.preventDefault()
+    event.stopPropagation()
+
+    $('#'+id+'-name-link').addClass('d-none')
+    $('#'+id+'-name-input').removeClass('d-none')
+
+    $('#'+id+'-cancel-save-name-btns').removeClass('d-none')
+    $('#'+id+'-edit-name-btn').addClass('d-none')
+  }
+
+  handleCancelName = (id, event) => {
+    event.preventDefault()
+    event.stopPropagation()
+
+    $('#'+id+'-name-link').removeClass('d-none')
+    $('#'+id+'-name-input').addClass('d-none')
+
+    $('#'+id+'-cancel-save-name-btns').addClass('d-none')
+    $('#'+id+'-edit-name-btn').removeClass('d-none')
+  }
+
+  handleSaveName = (id, event) => {
+    event.preventDefault()
+    event.stopPropagation()
+
+    $('#'+id+'-name-link').removeClass('d-none')
+    $('#'+id+'-name-input').addClass('d-none')
+
+    $('#'+id+'-cancel-save-name-btns').addClass('d-none')
+    $('#'+id+'-edit-name-btn').removeClass('d-none')
   }
 
   render() {
 
     {/* Deconstruct state */}
-    const { _id, _parentId, children, name, type, state, lastModified, actions, currentTrId, isLoading } = this.state
+    const { _id, _parentId, children, name, type, state, lastModified, actions, edit, currentTrId, isLoading } = this.state
    
     let trimedLowercasedSate = state.replace(" ", "").toLowerCase()
 
@@ -104,10 +137,10 @@ class FirstLevelTr extends Component {
 
     switch(type.value) {
       case "Navigation menu":
-        typeOnClickAction = (<td><a className="show-page-preview" data-on-click={"showPagePreview("+type.url+")"}>{type.value}</a></td>)
+        typeOnClickAction = (<a id="nameLink" className="show-page-preview" data-on-click={"showPagePreview("+type.url+")"}>{type.value}</a>)
         break
       case "Content page":
-        typeOnClickAction = (<td><a className="show-page-preview" data-on-click={"openExternalEditor("+type.url+")"}>{type.value}</a></td>)
+        typeOnClickAction = (<a className="show-page-preview" data-on-click={"openExternalEditor("+type.url+")"}>{type.value}</a>)
         break
       default:
         typeOnClickAction = (<td>Unknown action!</td>)
@@ -119,7 +152,7 @@ class FirstLevelTr extends Component {
       children ? <i className="fa fa-folder-o" aria-hidden="true"></i> :
         <i className="fa fa-file-text-o" aria-hidden="true"></i>
     )
-    console.log('Tr: ', this.props.page)
+    console.log('FirstLevelTr: ', this.props.page)
     const secondLevelTrs = (
       Array.isArray(this.props.page.children) && this.props.page.children.map(page => <SecondLevelTr key={page._id} page={page} />)  
     )
@@ -136,10 +169,25 @@ class FirstLevelTr extends Component {
             <tbody> 
               <tr>
                 <td><input type="checkbox" aria-label="Checkbox for following text input" className="page-id checkbox" /></td>
-                <td><a data-on-click={"selectNode("+_id+")"}>{iconElement}&nbsp;&nbsp;{name.value}</a></td>
-                {typeOnClickAction}
                 <td>
-                  <select className="custom-select-sm" value={trimedLowercasedSate} onChange={this.handleStateChange.bind(this)}>
+                  <div className="form-inline">
+                    <div className="form-group">
+                      <a id={""+_id+"-name-link"} data-on-click={"selectNode("+_id+")"}>{iconElement}&nbsp;&nbsp;{name.value}</a>
+                      <input id={""+_id+"-name-input"} type="text" className="form-control form-control-sm d-none" 
+                        onChange={this.handleChange.bind(this)} value={name.value} />
+                    </div>
+                    <div className="form-group ml-2">
+                      <div id={""+_id+"-cancel-save-name-btns"} className="btn-group btn-group-sm d-none">
+                        <button type="button" className="btn btn-sm btn-outline cancel-name" onClick={this.handleCancelName.bind(this, _id)}><i className="fa fa-times" aria-hidden="true"></i></button>
+                        <button type="button" className="btn btn-sm btn-outline-primary save-name"  onClick={this.handleSaveName.bind(this, _id)}><i className="fa fa-check-circle-o" aria-hidden="true"></i></button>
+                      </div>
+                      <button type="button" id={""+_id+"-edit-name-btn"} className="btn btn-sm btn-outline-primary" onClick={this.handleEditName.bind(this, _id)}><i className="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                    </div>
+                  </div>
+                </td>
+                <td>{typeOnClickAction}</td>
+                <td>
+                  <select className="custom-select-sm" value={trimedLowercasedSate} onChange={this.handleChange.bind(this)}>
                     <option defaultValue>-Set status-</option>
                     <option value="draft">Draft</option>
                     <option value="inprogress">In progress</option>

@@ -109,14 +109,39 @@ body {
 
 // Toggle styles
 .sidebar.col-sm-2.col-md-1 {
-  span, .customer-name {
-    display: none !important;
+  span {
+    visibility: collapse;
+    position: absolute;
+    opacity: 0;
+    -webkit-transition: opacity 600ms, visibility 600ms;
+            transition: opacity 600ms, visibility 600ms;
   }
-  .nav-link {
-    text-align: center;
+  .customer-name {
+    visibility: collapse;
+    opacity: 0;
+    -webkit-transition: opacity 600ms, visibility 600ms;
+            transition: opacity 600ms, visibility 600ms;
   }
-  .fa {
-    font-size: 1.5em;
+  .fa, span {
+    position: absolute;
+    left: 60px;
+    @include transition(all .4s ease 0s);
+  }
+}
+
+.sidebar.col-sm-3.col-md-2 {
+  span {
+    visibility: visible;
+    opacity: 1;
+    position: absolute;
+    -webkit-transition: opacity 600ms, visibility 600ms;
+            transition: opacity 600ms, visibility 600ms;
+  }
+  .customer-name {
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: opacity 600ms, visibility 600ms;
+            transition: opacity 600ms, visibility 600ms;
   }
 }
 

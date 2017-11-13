@@ -82,3 +82,10 @@
   cursor: pointer;
 }
 
+.structure td a.show-page-preview {
+  color: $orange;
+  &:hover, &:active, &:focus {
+    color: $light-orange !important;
+  }
+}
+
