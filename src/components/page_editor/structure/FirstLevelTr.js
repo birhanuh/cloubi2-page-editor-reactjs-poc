@@ -162,7 +162,7 @@ class FirstLevelTr extends Component {
     )
 
     return(        
-      <tr id={""+_id+""} onClick={this.handlePageFetch.bind(this, _id)} data-tt-id={""+_id+""} className={classnames(""+_id+" first-level-tr", {children: children, spinner: isLoading })}>
+      <tr id={""+_id+""} className={classnames(""+_id+" first-level-tr", {children: children, spinner: isLoading })} onClick={this.handlePageFetch.bind(this, _id)} data-tt-id={""+_id+""} >
         
         <td colSpan="6" className="p-0">
           <table width="100%">
@@ -176,7 +176,7 @@ class FirstLevelTr extends Component {
                       <input id={""+_id+"-name-input"} type="text" className="form-control form-control-sm d-none" 
                         onChange={this.handleChange.bind(this)} value={name.value} />
                     </div>
-                    <div className="form-group ml-2">
+                    <div className="form-group edit-name ml-2">
                       <div id={""+_id+"-cancel-save-name-btns"} className="btn-group btn-group-sm d-none">
                         <button type="button" className="btn btn-sm btn-outline cancel-name" onClick={this.handleCancelName.bind(this, _id)}><i className="fa fa-times" aria-hidden="true"></i></button>
                         <button type="button" className="btn btn-sm btn-outline-primary save-name"  onClick={this.handleSaveName.bind(this, _id)}><i className="fa fa-check-circle-o" aria-hidden="true"></i></button>

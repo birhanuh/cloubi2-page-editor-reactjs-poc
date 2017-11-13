@@ -124,7 +124,7 @@ body {
   }
   .fa, span {
     position: absolute;
-    left: 60px;
+    left: 40%;
     @include transition(all .4s ease 0s);
   }
 }

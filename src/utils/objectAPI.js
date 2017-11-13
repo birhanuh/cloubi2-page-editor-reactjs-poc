@@ -590,6 +590,64 @@ export default {
 
     page(null)
 
+  },
+
+  get500Pages: (pages) => {
+    var id = 1 
+    var  generatedPages = []
+    for(var i = 0; i < 500; i++) { 
+      generatedPages.push({
+        _id: id,
+        _parentId: false,
+        children: (i%4==0),
+        name: {
+          value: 'Chapter '+id+'',
+          url: 'http://placehold.it/32x3'
+        },
+        type: {
+          value: 'Navigation menu',
+          url: 'http://placehold.it/32x3'
+        },
+        state: 'On hold',
+        lastModified: 'May 17, 2015',
+        actions: {
+          pageSettings: {
+            url: 'http://placehold.it/32x3'
+          },
+          selectType: {
+            url: 'http://placehold.it/32x3'
+          },
+          copySettingsToSinglePage: {
+            url: 'http://placehold.it/32x3'
+          },
+          addPages: {
+            url: 'http://placehold.it/32x3'
+          },
+          editSubStructure: {
+            url: 'http://placehold.it/32x3'
+          },
+          arrangeChildren: {
+            url: 'http://placehold.it/32x3'
+          },
+          movePage: {
+            url: 'http://placehold.it/32x3'
+          },
+          duplicatePage:  {
+            url: 'http://placehold.it/32x3'
+          },
+          importPages:  {
+            url: 'http://placehold.it/32x3'
+          },
+          deletePage: {
+            url: 'http://placehold.it/32x3'
+          }
+        }
+      })
+      id++ 
+    } 
+
+    pages(generatedPages)
+    //JSON.stringify(pages);
   } 
 }
 

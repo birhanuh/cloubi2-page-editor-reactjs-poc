@@ -38,7 +38,6 @@ class ThirdLevelTr extends Component {
   
   componentDidMount = () => {
     $("#"+this.state._id+"").click(function(e) {
-      e.stopPropagation()
       $('.dropdown-menu').removeClass('show')
       $('td.text-center').removeClass('show')
     })
@@ -56,6 +55,13 @@ class ThirdLevelTr extends Component {
     })
   }
 
+  handleOpenContentPage = (id, event) => {
+    event.preventDefault()
+    event.stopPropagation()
+
+    console.log('Content open content handler')
+  }
+
   handleChange = () => {
 
   }
@@ -63,7 +69,7 @@ class ThirdLevelTr extends Component {
   handleEditName = (id, event) => {
     event.preventDefault()
     event.stopPropagation()
-
+    console.log('edit-name-btn')
     $('#'+id+'-name-link').addClass('d-none')
     $('#'+id+'-name-input').removeClass('d-none')
 
@@ -122,7 +128,7 @@ class ThirdLevelTr extends Component {
     console.log('ThirdLevelTr: ', this.props.page)
 
     return(        
-      <tr id={""+_id+""} data-tt-id={""+_id+""} data-tt-parent-id={""+dataTTPrentId+""} className={classnames({children: children })} >
+      <tr id={""+_id+""} className={classnames({children: children })} onClick={this.handleOpenContentPage.bind(this, _id)} data-tt-id={""+_id+""} data-tt-parent-id={""+dataTTPrentId+""} >
         
         <td colSpan="6" className="p-0">
           <table width="100%">
@@ -136,7 +142,7 @@ class ThirdLevelTr extends Component {
                       <input id={""+_id+"-name-input"} type="text" className="form-control form-control-sm d-none" 
                         onChange={this.handleChange.bind(this)} value={name.value} />
                     </div>
-                    <div className="form-group ml-2">
+                    <div className="form-group edit-name ml-2">
                       <div id={""+_id+"-cancel-save-name-btns"} className="btn-group btn-group-sm d-none">
                         <button type="button" className="btn btn-sm btn-outline cancel-name" onClick={this.handleCancelName.bind(this, _id)}><i className="fa fa-times" aria-hidden="true"></i></button>
                         <button type="button" className="btn btn-sm btn-outline-primary save-name"  onClick={this.handleSaveName.bind(this, _id)}><i className="fa fa-check-circle-o" aria-hidden="true"></i></button>
