@@ -3,9 +3,6 @@ import React, { Component } from 'react'
 // Import dropdown module
 import 'bootstrap/js/dist/dropdown'
 
-// Localization 
-import T from 'i18n-react'
-
 // Images
 import logoInverted from '../../images/logo-inverted.svg'
 import avatarPlaceholder from '../../images/avatar-placeholder.png'
@@ -45,7 +42,7 @@ class HeaderNav extends Component {
                 <a className="dropdown-item active" href="#">Action</a>
                 <a className="dropdown-item" href="#">Another action</a>
                 <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="#">{T.translate("internal_navigation.notifications")}</a>
+                <a className="dropdown-item" href="#">Another action</a>
               </div>
             </li>
           </ul>

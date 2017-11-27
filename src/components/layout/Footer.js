@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
 
-// Localization 
-import T from 'i18n-react'
-
 class Footer extends Component {      
   render() {
     return(
