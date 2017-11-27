@@ -42,7 +42,7 @@ class HeaderNav extends Component {
                 <a className="dropdown-item active" href="#">Action</a>
                 <a className="dropdown-item" href="#">Another action</a>
                 <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="#">Another action</a>
+                <a className="dropdown-item" href="#">Another ac</a>
               </div>
             </li>
           </ul>
