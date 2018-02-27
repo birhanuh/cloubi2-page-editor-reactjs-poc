@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
 import { connect } from 'react-redux'
-import { fetchFirstLevelPages } from '../../../actions/page_editor/pageActions.js'
+import classnames from 'classnames'
 
 //import { SortableContainer, SortableElement, arryMove } from 'react-sortable-hoc'
 
-import FirstLevelTr from './FirstLevelTr'
+import Tr from './Tr'
 
 class Table extends Component {
   constructor() {
@@ -30,7 +29,6 @@ class Table extends Component {
     this.setState({
       isLoading: true
     })
-    this.props.fetchFirstLevelPages()
   }
 
   render() {
@@ -48,14 +46,14 @@ class Table extends Component {
 
     const pagesList = (  
      <tbody>               
-        {/* Import FirstLevelTr component */}  
-        { this.props.pages.map(page => <FirstLevelTr key={page._id} page={page} />) }  
+        {/* Import Tr component */}  
+        { this.props.pages.map(page => <Tr key={page._id} page={page} />) }  
       </tbody>        
     )
 
     console.log('Table: ', this.props.pages)
     return(
-      <div className="table-responsive" >
+      <div className="table-responsive">
         <table className={classnames('table', { spinner: this.state.isLoading })}>
           <thead>
             <tr>
@@ -71,7 +69,7 @@ class Table extends Component {
           { this.props.pages.length === 0 ? emptyMessage : pagesList}
 
         </table> 
- 
+      {/*<h2>{this.state.title}</h2>*/}
         <div className="mt-5 mb-5">
           <div className="col-md-4 offset-md-4">
             <button type="button" className="btn btn-block btn-primary">
@@ -85,14 +83,4 @@ class Table extends Component {
   }
 }
 
-Table.propTypes = {
-  fetchFirstLevelPages: PropTypes.func.isRequired
-}
-
-function mapStateToProps(state, props) {
-  return {
-    pages: state.pages
-  }
-}
-
-export default connect(mapStateToProps, { fetchFirstLevelPages })(Table)
+export default Table

@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import { fetchPages} from '../../../actions/page_editor/pageActions.js'
 
 import Table from './Table'
 
 class Page extends Component {
+
+  componentDidMount = () => {
+    this.props.fetchPages()
+  }
 
   render() {
 
@@ -53,12 +60,23 @@ class Page extends Component {
           </div>
         </div> 
 
-        {/* Import Table component */}  
-        <Table />
+       {/* Import Table component */}  
+       <Table pages={this.props.pages} />
 
       </div>  
     )
   }
 } 
 
-export default Page
+Page.propTypes = {
+  fetchPages: PropTypes.func.isRequired
+}
+
+function mapStateToProps(state, props) {
+  return {
+    pages: state.pages
+  }
+}
+
+export default connect(mapStateToProps, { fetchPages })(Page)
+
