@@ -1,33 +1,33 @@
-import { SET_FIRST_LEVEL_PAGES, FIRST_LEVEL_PAGE_FETCHED, SECOND_LEVEL_PAGE_FETCHED } from '../../actions/types'
+import { SET_PAGES, PAGE_FETCHED, CHILD_PAGE_FETCHED } from '../../actions/types'
 
 export default function pages(state = [], action = {}) {
   switch(action.type) {    
 
-    case SET_FIRST_LEVEL_PAGES:
+    case SET_PAGES:
       return action.pages
 
-    case FIRST_LEVEL_PAGE_FETCHED: 
-      const firstLevelPageIndex = state.findIndex(item => item._id === action.firstLevelPage._id)
-      if (firstLevelPageIndex > -1) {
+    case PAGE_FETCHED: 
+      const pageIndex = state.findIndex(item => item._id === action.page._id)
+      if (pageIndex > -1) {
         return state.map(item => {
-          if (item._id === action.firstLevelPage._id) return action.firstLevelPage
+          if (item._id === action.page._id) return action.page
           return item
         })
       } else {
         return [
           ...state,
-          action.firstLevelPage
+          action.page
         ]
       }
-
-    case SECOND_LEVEL_PAGE_FETCHED: 
-      const firstLevelPageIndex2 = state.findIndex(item => item._id === action.secondLevelPage._parentId)
-      if (firstLevelPageIndex2) {
+    
+    case CHILD_PAGE_FETCHED: 
+      const parentPagePageIndex = state.findIndex(item => item._id === action.childPage._parentId)      
+      if (parentPagePageIndex > -1) {
         return state.map(item => {
-          if (item._id === action.secondLevelPage._parentId) {
+          if (item._id === action.childPage._parentId) {
             let list = item.children.map(item2 => {
-              if (item2._id === action.secondLevelPage._id) {
-                return action.secondLevelPage
+              if (item2._id === action.childPage._id) {
+                return action.childPage
               }
               return item2
             })
@@ -41,10 +41,9 @@ export default function pages(state = [], action = {}) {
       } else {
         return [
           ...state,
-          action.firstLevelPage
+          action.childPage
         ]
       }
-      
 
     default: return state
   }
