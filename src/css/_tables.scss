@@ -59,7 +59,7 @@
 }
 
 .table-responsive table thead tr th:first-child + th, .table-responsive table tbody tr td:first-child + td {
-  width: 39%;
+  width: 40%;
 }
 
 .table-responsive table thead tr th:first-child + th + th, .table-responsive table tbody tr td:first-child + td + td {
@@ -74,7 +74,7 @@
   background-color: $xx-light-gray;
 }
 
-.first-level-tr.collapse {
+.first-level-tr.children.collapse {
   display: table-row;
 }
 
