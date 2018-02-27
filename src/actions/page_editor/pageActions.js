@@ -1,23 +1,9 @@
 import { objectAPI } from '../../utils'
-import { SET_PAGES, SET_PAGES2, SET_PAGES3, PAGE_FETCHED, CHILD_PAGE_FETCHED } from '../types'
+import { SET_PAGES, PAGE_FETCHED, CHILD_PAGE_FETCHED } from '../types'
 
 export function setPages(pages) {
   return {
     type: SET_PAGES,
-    pages
-  }
-}
-
-export function setPages2(pages) {
-  return {
-    type: SET_PAGES2,
-    pages
-  }
-}
-
-export function setPages3(pages) {
-  return {
-    type: SET_PAGES3,
     pages
   }
 }
@@ -41,26 +27,6 @@ export function fetchPages() {
     return objectAPI.getPages((pages) => {
       if (pages) {
         dispatch(setPages(pages))
-      }
-    })
-  }
-}
-
-export function fetchPages2() {
-  return dispatch => {
-    return objectAPI.getPages2((pages) => {
-      if (pages) {
-        dispatch(setPages2(pages)) 
-      }
-    })
-  }
-}
-
-export function fetchPages3() {
-  return dispatch => {
-    return objectAPI.getPages3((pages) => {
-      if (pages) {
-        dispatch(setPages3(pages)) 
       }
     })
   }
